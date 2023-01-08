@@ -237,6 +237,7 @@
             this.txtBoxSku.Name = "txtBoxSku";
             this.txtBoxSku.Size = new System.Drawing.Size(100, 23);
             this.txtBoxSku.TabIndex = 1;
+            this.txtBoxSku.TextChanged += new System.EventHandler(this.txtBoxSku_TextChanged);
             // 
             // datePickFechaAlta
             // 

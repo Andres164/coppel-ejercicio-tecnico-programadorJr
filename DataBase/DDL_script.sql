@@ -1,16 +1,16 @@
 CREATE TABLE articulos (
-	sku NUMERIC(6, 0), -- PRIMARY KEY
-	articulo VARCHAR(15),
-	marca VARCHAR(15),
-	modelo VARCHAR(20),
-	departamento NUMERIC(1, 0),
-	clase NUMERIC(2, 0),
-	familia NUMERIC(3, 0),
-	fecha_de_alta DATE DEFAULT GETDATE(),
-	stock NUMERIC(9, 0),
-	cantidad NUMERIC(9, 0),
-	descontinuado BIT DEFAULT 0,
-	fecha_baja DATE DEFAULT '1900-01-01'
+	sku NUMERIC(6, 0) PRIMARY KEY,
+	articulo VARCHAR(15) NOT NULL,
+	marca VARCHAR(15) NOT NULL,
+	modelo VARCHAR(20) NOT NULL,
+	departamento NUMERIC(1, 0) NOT NULL,
+	clase NUMERIC(2, 0) NOT NULL,
+	familia NUMERIC(3, 0) NOT NULL,
+	fecha_de_alta DATE DEFAULT GETDATE() NOT NULL,
+	stock NUMERIC(9, 0) NOT NULL,
+	cantidad NUMERIC(9, 0) NOT NULL,
+	descontinuado BIT DEFAULT 0 NOT NULL,
+	fecha_baja DATE DEFAULT '1900-01-01' NOT NULL
 )
 
 CREATE TABLE departamentos (

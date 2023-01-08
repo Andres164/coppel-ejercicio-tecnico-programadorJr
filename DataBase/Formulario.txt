@@ -1,0 +1,19 @@
+Restricciones
+* No se permiten campos nulos
+* SKU solo permite caracteres numéricos
+
+Funciones
++  
++ Texto en el campo SKU cambio
+si el SKU es válido,
+obtener el registro con ese SKU a través de la interfaz formulario
+
++ Boton funcion presionado // Abstract
+ejecutar Alta, Baja, Cambio o Consulta dependiendo del formulario a través de
+la interfaz del formulario, 
+- mostrar mensaje informando si la operación fue exitosa o no.
+- Si la operación no fue exitosa, limpiar todos los campos menos el SKU
+
+
+
+

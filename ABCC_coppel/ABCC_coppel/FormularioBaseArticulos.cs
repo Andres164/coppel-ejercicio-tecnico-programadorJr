@@ -16,5 +16,16 @@ namespace ABCC_coppel
         {
             InitializeComponent();
         }
+        private bool esStringSoloNumeros(string texto)
+        {
+            int caracteresNoNumericos = 0;
+            foreach (char c in texto)
+                caracteresNoNumericos += c >= '0' && c <= '9' ? 0 : 1;
+            return caracteresNoNumericos == 0;
+        }
+        private void txtBoxSku_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
