@@ -25,9 +25,11 @@ namespace Clases
             commBuilder.GetInsertCommand();
             commBuilder.GetUpdateCommand();
             commBuilder.GetDeleteCommand();
+            dataAdapter.Fill(articulos);
         }
-        public void alta(Articulo articulo)
+        public void alta(ref Articulo articulo)
         {
+            DataRow nuevoRegistro = this.articulos.NewRow();
 
         }
         /*

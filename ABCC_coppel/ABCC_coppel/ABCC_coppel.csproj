@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Articulo.cs" />
+    <Compile Include="Clases\Log.cs" />
     <Compile Include="FormularioBaseArticulos.cs">
       <SubType>Form</SubType>
     </Compile>

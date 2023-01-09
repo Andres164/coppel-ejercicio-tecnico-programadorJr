@@ -8,6 +8,7 @@ namespace ABCC_Coppel
 {
     internal static class Program
     {
+        public static string archivoLog = DateTime.Now.ToString() + ".txt";
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

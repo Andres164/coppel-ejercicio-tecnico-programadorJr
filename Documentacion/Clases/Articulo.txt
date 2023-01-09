@@ -1,7 +1,7 @@
 artículo
 clase que representa un artículo de la base de datos
 
-Campos
+Propiedades
 - SKU
 - Articulo
 - Marca
@@ -13,3 +13,12 @@ Campos
 - Fecha Alta
 - Fecha Baja
 - Descontinuado
+
+- Campos, arreglo con todos los campos los cuales modifican las propiedades
+
+Metodos
+fill
+Entrada: ref a un DataRow
+rellena el DataRow con los datos del articulo
+
+

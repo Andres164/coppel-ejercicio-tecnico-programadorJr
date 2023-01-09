@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlTypes;
+using System.Data;
 
 namespace Clases
 {
@@ -20,5 +21,10 @@ namespace Clases
         SqlDateTime fechaAlta { set; get; }
         SqlDateTime fechaBaja { set; get; }
         bool descontinuado { set; get; }
+        
+        public void fill(ref DataRow valores)
+        {
+
+        }
     }
 }
