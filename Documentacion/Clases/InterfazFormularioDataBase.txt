@@ -1,0 +1,32 @@
+InterfazFormularioDataBase
+Campos
+- DataAdapter
+- DataTable
+- DataView
+- SqlConnection
+
+Funciones
++ Constructor
+Se inicializan los campos, al dataAdapter se le asignan consultas SELECT, INSERT, UPDATE, DELETE
+
++ Alta
+Entrada: objeto artículo
+Se agrega un nuevo registro al DataTable
+Se actualiza la base de datos por medio del DataAdapter
+
++ Baja
+Entrada: SKU
+El dataView es filtrado por el SKU ingresado, si hay registro, se eliminará
+Se actualiza la base de datos por medio del DataAdapter si existe un registro
+
++ Cambio
+Entrada: objeto artículo
+El dataView es filtrado por el SKU, sí hay registros, se reemplaza el registro con los datos del 
+objeto dado Se actualiza la base de datos por medio del DataAdapter si existe un registro
+
++ Consulta
+Entrada: SKU
+El dataView es filtrado por el SKU, se devuelve un objeto articulo con los datos del registro
+Salida: Objeto artículo
+
+

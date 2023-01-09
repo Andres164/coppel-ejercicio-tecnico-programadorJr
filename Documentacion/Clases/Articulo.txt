@@ -1,0 +1,15 @@
+artículo
+clase que representa un artículo de la base de datos
+
+Campos
+- SKU
+- Articulo
+- Marca
+- Modelo 
+- Departamento
+- Clase
+- Familia
+- Stock
+- Fecha Alta
+- Fecha Baja
+- Descontinuado
