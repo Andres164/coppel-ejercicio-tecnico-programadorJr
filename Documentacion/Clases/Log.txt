@@ -5,9 +5,9 @@ My Documents/ABCC_Coppel/Logs/
 
 Metodo estatico
 error
-Entrada: nombre del método ejecutado, excepcion
+Entrada: archivo, nombre del método ejecutado, excepcion
 crea el directorio My Documents/ABCC_Coppel/Logs si no existe
-Añade al archivo log una nueva fila con <Error> [ hora actual ] seguida del nombre del método, nombre de la excepción y mensaje
+Añade al archivo log una nueva fila con <Error> [ hora actual ] seguida del archivo, nombre del método, nombre de la excepción y mensaje
 
 info
 Entrada nombre del metodo, mensaje
