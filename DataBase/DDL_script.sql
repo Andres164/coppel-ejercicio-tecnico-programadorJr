@@ -8,7 +8,6 @@ CREATE TABLE articulos (
 	familia NUMERIC(3, 0) NOT NULL,
 	fecha_de_alta DATE DEFAULT GETDATE() NOT NULL,
 	stock NUMERIC(9, 0) NOT NULL,
-	cantidad NUMERIC(9, 0) NOT NULL,
 	descontinuado BIT DEFAULT 0 NOT NULL,
 	fecha_baja DATE DEFAULT '1900-01-01' NOT NULL
 )
