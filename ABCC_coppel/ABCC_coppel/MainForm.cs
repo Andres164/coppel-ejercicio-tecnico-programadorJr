@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Sql;
 
 namespace ABCC_Coppel
 {
@@ -15,6 +16,11 @@ namespace ABCC_Coppel
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -14,7 +14,9 @@ Propiedades
 - Fecha Baja
 - Descontinuado
 
-- Campos, arreglo con todos los campos los cuales modifican las propiedades
+- Campos, ListArray con todos los campos los cuales modifican las propiedades
+
+Constructor que inicializa los campos usando los datos en un dataRow dado
 
 Metodos
 fill

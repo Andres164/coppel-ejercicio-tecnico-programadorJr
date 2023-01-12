@@ -27,6 +27,14 @@ namespace Clases
             commBuilder.GetDeleteCommand();
             dataAdapter.Fill(articulos);
         }
+        public void test()
+        {
+            DataRow dataRow = articulos.Rows[0];
+            Articulo nuevoArticulo = new Articulo(ref dataRow);
+            Log.info("test()", "nuevoArticulo.articulo: " + nuevoArticulo.articulo);
+            nuevoArticulo.fill(ref dataRow);
+            Log.info("test()", "dataRow.articulo: " + dataRow[1]);
+        }
         public void alta(ref Articulo articulo)
         {
             DataRow nuevoRegistro = this.articulos.NewRow();

@@ -38,45 +38,46 @@ namespace ABCC_Coppel
             // 
             // btnAlta
             // 
-            this.btnAlta.Location = new System.Drawing.Point(32, 48);
+            this.btnAlta.Location = new System.Drawing.Point(27, 42);
             this.btnAlta.Name = "btnAlta";
-            this.btnAlta.Size = new System.Drawing.Size(130, 88);
+            this.btnAlta.Size = new System.Drawing.Size(111, 76);
             this.btnAlta.TabIndex = 0;
             this.btnAlta.Text = "Alta";
             this.btnAlta.UseVisualStyleBackColor = true;
+            this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
             // 
             // btnBaja
             // 
-            this.btnBaja.Location = new System.Drawing.Point(205, 48);
+            this.btnBaja.Location = new System.Drawing.Point(176, 42);
             this.btnBaja.Name = "btnBaja";
-            this.btnBaja.Size = new System.Drawing.Size(130, 88);
+            this.btnBaja.Size = new System.Drawing.Size(111, 76);
             this.btnBaja.TabIndex = 1;
             this.btnBaja.Text = "Baja";
             this.btnBaja.UseVisualStyleBackColor = true;
             // 
             // btnCambio
             // 
-            this.btnCambio.Location = new System.Drawing.Point(32, 193);
+            this.btnCambio.Location = new System.Drawing.Point(27, 167);
             this.btnCambio.Name = "btnCambio";
-            this.btnCambio.Size = new System.Drawing.Size(130, 88);
+            this.btnCambio.Size = new System.Drawing.Size(111, 76);
             this.btnCambio.TabIndex = 2;
             this.btnCambio.Text = "Cambio";
             this.btnCambio.UseVisualStyleBackColor = true;
             // 
             // btnConsulta
             // 
-            this.btnConsulta.Location = new System.Drawing.Point(205, 193);
+            this.btnConsulta.Location = new System.Drawing.Point(176, 167);
             this.btnConsulta.Name = "btnConsulta";
-            this.btnConsulta.Size = new System.Drawing.Size(130, 88);
+            this.btnConsulta.Size = new System.Drawing.Size(111, 76);
             this.btnConsulta.TabIndex = 3;
             this.btnConsulta.Text = "Consulta";
             this.btnConsulta.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 337);
+            this.ClientSize = new System.Drawing.Size(308, 292);
             this.Controls.Add(this.btnConsulta);
             this.Controls.Add(this.btnCambio);
             this.Controls.Add(this.btnBaja);
