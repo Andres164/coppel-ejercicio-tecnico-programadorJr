@@ -45,7 +45,7 @@ namespace Clases
                 for (int i = 0; i < 11; i++)
                     this.campos.Add(dataRow[i]);
             }
-            catch (Exception ex) { Log.error("Articulo.cs", "Articulo()", ex); }
+            catch (Exception ex) { Log.error(ex); }
         }
 
         public void fill(ref DataRow dataRow)
@@ -55,7 +55,7 @@ namespace Clases
                 for(int i = 0; i < this.campos.Count; i++)
                     dataRow[i] = this.campos[i];
             }
-            catch (Exception ex) { Log.error("Articulo.cs", "fill()", ex); }
+            catch (Exception ex) { Log.error(ex); }
         }
     }
 }

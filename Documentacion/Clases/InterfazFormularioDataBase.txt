@@ -13,17 +13,22 @@ Se inicializan los campos, al dataAdapter se le asignan consultas SELECT, INSERT
 Entrada: objeto artículo
 Se agrega un nuevo registro al DataTable
 Se actualiza la base de datos por medio del DataAdapter
+Salida: int; 0 en caso de exito, 1 en caso de que ya exista un registro igual, 
+2 en caso de aver encontrado una excepcion
 
 + Baja
 Entrada: SKU
 El dataView es filtrado por el SKU ingresado, si hay registro, se eliminará
 Se actualiza la base de datos por medio del DataAdapter si existe un registro
-Salida: Boolean; verdadero en caso de exito, falso en caso contrario
+Salida: int; 0 en caso de exito, 1 en caso de no encontrar registros, 2 en caso de aver encontrado
+una excepcion
 
 + Cambio
 Entrada: objeto artículo
 El dataView es filtrado por el SKU, sí hay registros, se reemplaza el registro con los datos del 
 objeto dado Se actualiza la base de datos por medio del DataAdapter si existe un registro
+Salida: int; 0 en caso de exito, 1 en caso de no encontrar registros, 2 en caso de aver encontrado
+una excepcion
 
 + Consulta
 Entrada: SKU

@@ -16,6 +16,9 @@ Propiedades
 
 - Campos, ListArray con todos los campos los cuales modifican las propiedades
 
+Constructor que inicializa los campos con variables separadas, fechaAlta y fechaBaja es inicializado
+con los valores default tal como estan en la base de datos
+
 Constructor que inicializa los campos usando los datos en un dataRow dado
 
 Metodos
