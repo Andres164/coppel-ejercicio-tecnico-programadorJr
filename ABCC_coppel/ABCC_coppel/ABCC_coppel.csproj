@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Articulo.cs" />
+    <Compile Include="Clases\InterfazDB\InterfazDB.cs" />
     <Compile Include="Clases\Log.cs" />
     <Compile Include="FormularioArticulos.cs">
       <SubType>Form</SubType>
@@ -54,7 +55,7 @@
     <Compile Include="FormularioArticulos.Designer.cs">
       <DependentUpon>FormularioArticulos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Clases\InterfazFormularioDataBase.cs" />
+    <Compile Include="Clases\InterfazDB\InterfazArticulos.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

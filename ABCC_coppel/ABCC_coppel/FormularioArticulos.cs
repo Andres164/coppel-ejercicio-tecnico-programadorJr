@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Clases;
+using Clases.InterfazDB;
 
 namespace ABCC_Coppel
 {
-    abstract public partial class FormularioArticulos : Form
+    abstract partial class FormularioArticulos : Form
     {
-        InterfazFormularioDataBase dataBase;
+        protected InterfazArticulos interfazArticulos;
         public FormularioArticulos()
         {
             InitializeComponent();
-            dataBase = new InterfazFormularioDataBase();
+            interfazArticulos = new InterfazArticulos();
         }
         protected bool esStringSoloNumeros(string texto)
         {
@@ -26,7 +26,7 @@ namespace ABCC_Coppel
                 caracteresNoNumericos += c >= '0' && c <= '9' ? 0 : 1;
             return caracteresNoNumericos == 0;
         }
-        virtual protected void txtBoxSku_TextChanged(object sender, EventArgs e)
+        protected void txtBoxSku_TextChanged(object sender, EventArgs e)
         {
             /*
              si el SKU es válido,
@@ -44,7 +44,7 @@ namespace ABCC_Coppel
         }
         abstract protected void btnFuncion_Click(object sender, EventArgs e);
 
-        private void btnBuscarSku_Click(object sender, EventArgs e)
+        protected void btnBuscarSku_Click(object sender, EventArgs e)
         {
 
         }

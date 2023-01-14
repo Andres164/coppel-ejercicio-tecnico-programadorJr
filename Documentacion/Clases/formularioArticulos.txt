@@ -1,0 +1,25 @@
+Restricciones
+* No se permiten campos nulos
+* SKU solo permite caracteres numéricos
+
+Campos
+Interfaz con la tabla articulos
+
+Constructor
+codigo auto generado
++inicializar las colecciones de Departamento, Clase, Familia con los datos de la base de datos
++ inicializar intefaz articulos
+
+Funciones
+  
++ Texto en el campo SKU cambio
+si el SKU no es valido, mostrar un mensaje notificando al usuario que se ingreso un sku no valido
+  y eliminar el ultimo caracter del campo sku
+
+
++ btnFuncion presionado // Abstract
+
++ btnBuscarSku precionado
+Buscar un registro con el sku en la base de datos por medio de la interfazArticulos
+Si encuentra un registro rellena los campos del formulario
+si no, notificar al usuario

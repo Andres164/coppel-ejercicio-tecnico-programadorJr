@@ -1,13 +1,9 @@
 InterfazFormularioDataBase
-Campos
-- DataAdapter
-- DataTable
-- DataView
-- SqlConnection
 
 Funciones
 + Constructor
-Se inicializan los campos, al dataAdapter se le asignan consultas SELECT, INSERT, UPDATE, DELETE
+llamar el constructor base y pasarle "articulos" como argumento
+
 
 + Alta
 Entrada: objeto artículo

@@ -1,0 +1,16 @@
+Clase base de una interfaz con una tabla de la base de datos
+
+Campos
+- DataAdapter
+- DataTable
+- DataView
+
+Metodos:
++ Constructor
+Entrada: nombre de la tabla en la base de datos
+Se inicializan los campos, al dataAdapter se le asignan consultas SELECT, INSERT, UPDATE, DELETE
+
+Propiedades
++ DataTable 
+GET default
+
