@@ -1,0 +1,49 @@
+*Alta
+	BtnBuscarSku precionado:
+1- Al ingresar sku valido, 
+2- se busca el registro, 
+3:
+- si existe, se muestra un mensaje notificando al usuario que ya existe un registro con el mismo sku
+- si no, se habilitan todos los campos del formulario
+
+	btnFuncion precionado
+1- Dar de alta el nuevo articulo
+2:
+-si no se encuentran excepciones, se muestra un mensaje notificando que la operacion fue exitosa
+-en el caso contrario, se muestra un mensaje notificando que hubo una excepcion inesperada
+
+*Baja
+	btnFuncion precionado
+1- dar de baja el articulo con el sku ingresado
+2:
+-si no se encuentran excepciones, se muestra un mensaje notificando que la operacion fue exitosa
+-en el caso contrario, se muestra un mensaje notificando que hubo una excepcion inesperada
+
+*Cambio
+	btnFuncion precionado
+1- modificar  el articulo con el sku ingresado
+2:
+-si no se encuentran excepciones, se muestra un mensaje notificando que la operacion fue exitosa
+-en el caso contrario, se muestra un mensaje notificando que hubo una excepcion inesperada
+
+*Consulta
+	btnFuncion precionado: se llama el metodo BtnBuscarSku
+
+*Casos comunes
+Cosntructor:
+A las colecciones de los campos 1- Departamento, 2- Clase, 3- Familia se les debe agregar los datos 
+correspondientes guardados en la base de datos
+
+Todos los campos menos el sku estan deshabilitados
+Al escribir en el campo sku, se verifica que sea valido
+
+
+*Casos comunes BCC
+	BtnBuscarSku precionado:
+1- Al ingresar sku valido, 
+2- se busca el registro, 
+3:
+- si existe, se habilitan los campos y se rellenan con la informacion del registro
+- si no, se muestra mensaje notificando al usuario que no hay ningun registro con ese sku
+- si se encuentra una excepcion, se muestra un mensaje notificando que hubo un error inesperado
+

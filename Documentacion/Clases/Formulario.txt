@@ -12,10 +12,12 @@ codigo auto generado
 
 Funciones
   
-+ Texto en el campo SKU cambio
++ Texto en el campo SKU cambio // Virtual
 si el SKU es válido,
-obtener el registro con ese SKU a través de la interfaz formulario
+  obtener el registro con ese SKU a través de la interfaz formulario
+  escribir la informacion del articulo en los campos del formulario
 si el SKU no es valido, mostrar un mensaje notificando al usuario que se ingreso un sku no valido
+  y eliminar el ultimo caracter del campo sku
 
 
 + Boton funcion presionado // Abstract
