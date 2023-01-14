@@ -64,6 +64,7 @@ namespace ABCC_Coppel
             this.btnCambio.TabIndex = 2;
             this.btnCambio.Text = "Cambio";
             this.btnCambio.UseVisualStyleBackColor = true;
+            this.btnCambio.Click += new System.EventHandler(this.btnCambio_Click);
             // 
             // btnConsulta
             // 
@@ -73,6 +74,7 @@ namespace ABCC_Coppel
             this.btnConsulta.TabIndex = 3;
             this.btnConsulta.Text = "Consulta";
             this.btnConsulta.UseVisualStyleBackColor = true;
+            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
             // 
             // MainForm
             // 

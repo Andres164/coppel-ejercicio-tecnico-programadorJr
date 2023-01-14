@@ -2,11 +2,21 @@ Restricciones
 * No se permiten campos nulos
 * SKU solo permite caracteres numéricos
 
+Campos
+Interfaz con la base de datos
+
+Constructor
+codigo auto generado
++inicializar las colecciones de Departamento, Clase, Familia con los datos de la base de datos
++ inicializar intefaz base de datos
+
 Funciones
-+  
+  
 + Texto en el campo SKU cambio
 si el SKU es válido,
 obtener el registro con ese SKU a través de la interfaz formulario
+si el SKU no es valido, mostrar un mensaje notificando al usuario que se ingreso un sku no valido
+
 
 + Boton funcion presionado // Abstract
 ejecutar Alta, Baja, Cambio o Consulta dependiendo del formulario a través de
@@ -14,6 +24,17 @@ la interfaz del formulario,
 - mostrar mensaje informando si la operación fue exitosa o no.
 - Si la operación no fue exitosa, limpiar todos los campos menos el SKU
 
+
+Mensajes de error
+-Mensaje en caso de completar la operacion con exito (Mensaje en comun)
+
+-Si el sku no fue encontrado en la base de datos (Baja Cambio Consulta)
+
+-Si ya hay un registro con el sku dado (Alta)
+
+-Si se encontro una exepcion al intentar procesar la operacion (Mensaje en comun)
+
+-
 
 
 

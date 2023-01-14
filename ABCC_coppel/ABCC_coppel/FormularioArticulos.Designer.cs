@@ -2,7 +2,7 @@
 
 namespace ABCC_Coppel
 {
-    partial class FormularioBaseArticulos
+    partial class FormularioArticulos
     {
         /// <summary>
         /// Required designer variable.
@@ -54,6 +54,7 @@ namespace ABCC_Coppel
             this.datePickFechaBaja = new System.Windows.Forms.DateTimePicker();
             this.numericStock = new System.Windows.Forms.NumericUpDown();
             this.numericCantidad = new System.Windows.Forms.NumericUpDown();
+            this.btnBuscarSku = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).BeginInit();
             this.SuspendLayout();
@@ -160,9 +161,9 @@ namespace ABCC_Coppel
             // 
             // btnFuncion
             // 
-            this.btnFuncion.Location = new System.Drawing.Point(261, 303);
+            this.btnFuncion.Location = new System.Drawing.Point(253, 315);
             this.btnFuncion.Name = "btnFuncion";
-            this.btnFuncion.Size = new System.Drawing.Size(67, 22);
+            this.btnFuncion.Size = new System.Drawing.Size(75, 28);
             this.btnFuncion.TabIndex = 13;
             this.btnFuncion.Text = "btnFuncion";
             this.btnFuncion.UseVisualStyleBackColor = true;
@@ -291,11 +292,22 @@ namespace ABCC_Coppel
             this.numericCantidad.Size = new System.Drawing.Size(86, 20);
             this.numericCantidad.TabIndex = 9;
             // 
-            // FormularioBaseArticulos
+            // btnBuscarSku
+            // 
+            this.btnBuscarSku.Location = new System.Drawing.Point(12, 315);
+            this.btnBuscarSku.Name = "btnBuscarSku";
+            this.btnBuscarSku.Size = new System.Drawing.Size(75, 28);
+            this.btnBuscarSku.TabIndex = 14;
+            this.btnBuscarSku.Text = "Buscar sku";
+            this.btnBuscarSku.UseVisualStyleBackColor = true;
+            this.btnBuscarSku.Click += new System.EventHandler(this.btnBuscarSku_Click);
+            // 
+            // FormularioArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 336);
+            this.ClientSize = new System.Drawing.Size(347, 356);
+            this.Controls.Add(this.btnBuscarSku);
             this.Controls.Add(this.numericCantidad);
             this.Controls.Add(this.numericStock);
             this.Controls.Add(this.datePickFechaBaja);
@@ -320,7 +332,7 @@ namespace ABCC_Coppel
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FormularioBaseArticulos";
+            this.Name = "FormularioArticulos";
             this.Text = "FormularioBaseArticulos";
             ((System.ComponentModel.ISupportInitialize)(this.numericStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCantidad)).EndInit();
@@ -355,5 +367,6 @@ namespace ABCC_Coppel
         private DateTimePicker datePickFechaBaja;
         private NumericUpDown numericStock;
         private NumericUpDown numericCantidad;
+        private Button btnBuscarSku;
     }
 }

@@ -70,9 +70,26 @@ namespace Clases
                 }
             }
         }
-        public void cambio()
+        public int cambio(ref Articulo articulo)
         {
-
+            this.viewArticulos.RowFilter = $"sku = {articulo.sku}";
+            if (this.viewArticulos.Count < 1)
+                return 1;
+            else
+            {
+                try
+                { 
+                    DataRow dataRowArticulo = this.viewArticulos[0].Row;
+                    articulo.fill(ref dataRowArticulo);
+                    this.dataAdapter.Update(this.articulos);
+                    return 0;
+                }
+                catch (Exception ex)
+                {
+                    Log.error(ex);
+                    return 2;
+                }
+            }
         }
         public Articulo consulta(int sku)
         {
@@ -81,15 +98,17 @@ namespace Clases
                 return null;
             else
             {
-                DataRow articuloEncontrado = this.viewArticulos[0].Row;
-                return new Articulo(ref articuloEncontrado);
+                try
+                {
+                    DataRow articuloEncontrado = this.viewArticulos[0].Row;
+                    return new Articulo(ref articuloEncontrado);
+                }
+                catch (Exception ex)
+                {
+                    Log.error(ex);
+                    return null;
+                }
             }
         }
-        /*
-        + Cambio
-        Entrada: objeto artículo
-        El dataView es filtrado por el SKU, sí hay registros, se reemplaza el registro con los datos del 
-        objeto dado Se actualiza la base de datos por medio del DataAdapter si existe un registro
-        */
     }
 }

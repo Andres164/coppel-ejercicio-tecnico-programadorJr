@@ -42,5 +42,23 @@ namespace ABCC_Coppel
             else
                 MessageBox.Show("Ocurrio un error inesperado, para mas informacon lea el archivo Log en mis documentos");
         }
+        private void btnCambio_Click(object sender, EventArgs e)
+        {
+            Clases.Articulo nuevoArticulo = new Clases.Articulo(123, "K701", "AKG", "K701", 1, 1, 1, 20, false);
+            Clases.InterfazFormularioDataBase interfaz = new Clases.InterfazFormularioDataBase();
+            int resultadoCambio = interfaz.cambio(ref nuevoArticulo);
+            if (resultadoCambio == 0)
+                MessageBox.Show("Articulo modificado con exito");
+            else if (resultadoCambio == 1)
+                MessageBox.Show("El sku no fue encontrado");
+            else
+                MessageBox.Show("Ocurrio un error inesperado, para mas informacon lea el archivo Log en mis documentos");
+        }
+
+        private void btnConsulta_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
