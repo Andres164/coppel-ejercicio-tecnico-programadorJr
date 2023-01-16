@@ -13,20 +13,20 @@ CREATE TABLE articulos (
 )
 
 CREATE TABLE departamentos (
-	numero_departamento NUMERIC(1, 0),
+	numero_departamento NUMERIC(1, 0) PRIMARY KEY,
 	departamento VARCHAR(80),
-	id INT PRIMARY KEY IDENTITY
 )
 
 CREATE TABLE clases (
 	numero_clase NUMERIC(2, 0),
 	clase VARCHAR(80),
-	id INT PRIMARY KEY IDENTITY
+	numero_departamento NUMERIC(1,0),
+	clase_departamento AS numero_clase + numero_departamento
 )
 
 CREATE TABLE familias (
 	numero_familia NUMERIC(3, 0),
 	familia VARCHAR(80),
-	id INT PRIMARY KEY IDENTITY
+	clase_departamento NUMERIC(3, 0)
 )
 

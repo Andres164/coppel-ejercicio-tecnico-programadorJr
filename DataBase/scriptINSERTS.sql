@@ -4,86 +4,88 @@ INSERT INTO departamentos(numero_departamento, departamento) VALUES (2, 'ELECTRO
 INSERT INTO departamentos(numero_departamento, departamento) VALUES (3, 'MUEBLE SUELTO')
 INSERT INTO departamentos(numero_departamento, departamento) VALUES (4, 'SALAS, RECAMARAS, COMEDORES')
 
+
 /* CLASES */
 -- DOMESTICOS
-INSERT INTO clases(numero_clase, clase) VALUES (1, 'COMESTIBLES')
-INSERT INTO clases(numero_clase, clase) VALUES (2, 'LICUADORAS')
-INSERT INTO clases(numero_clase, clase) VALUES (3, 'BATIDORAS')
-INSERT INTO clases(numero_clase, clase) VALUES (4, 'CAFETERIAS')
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (1, 'COMESTIBLES', 1)
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (2, 'LICUADORAS', 1)
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (3, 'BATIDORAS', 1)
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (4, 'CAFETERIAS', 1)
 
 -- ELECTRONICA
-INSERT INTO clases(numero_clase, clase) VALUES (1, 'APLIFICADORES CAR AUDIO')
-INSERT INTO clases(numero_clase, clase) VALUES (2, 'AUTO STEREOS')
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (1, 'APLIFICADORES CAR AUDIO', 2)
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (2, 'AUTO STEREOS', 2)
 
 -- MUEBLE SUELTO
-INSERT INTO clases(numero_clase, clase) VALUES (1, 'COLCHON')
-INSERT INTO clases(numero_clase, clase) VALUES (2, 'JUEGO BOX')
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (1, 'COLCHON', 3)
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (2, 'JUEGO BOX', 3)
 
 -- SALAS, RECAMARAS, COMEDORES
-INSERT INTO clases(numero_clase, clase) VALUES (1, 'SALAS')
-INSERT INTO clases(numero_clase, clase) VALUES (2, 'COMPLEMENTOS PARA SALA')
-INSERT INTO clases(numero_clase, clase) VALUES (3, 'SOFAS CAMA')
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (1, 'SALAS', 3)
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (2, 'COMPLEMENTOS PARA SALA', 3)
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (3, 'SOFAS CAMA', 3)
 
 
 /* FAMILIAS */
 
 --COMESTIBLES
-INSERT INTO familias(numero_familia, familia) VALUES (00, 'SIN NOMBRE')
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (00, 'SIN NOMBRE', 11)
 
 -- LICUADORAS
-INSERT INTO familias(numero_familia, familia) VALUES (01, 'LICUADORAS')
-INSERT INTO familias(numero_familia, familia) VALUES (02, 'EXPLUSIVO COPPEL.COM')
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (01, 'LICUADORAS', 21)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (02, 'EXPLUSIVO COPPEL.COM', 21)
 
 -- BATIDORAS
-INSERT INTO familias(numero_familia, familia) VALUES (01, 'BATIDORA MANUAL')
-INSERT INTO familias(numero_familia, familia) VALUES (02, 'PROCESADOR')
-INSERT INTO familias(numero_familia, familia) VALUES (03, 'PICADORA')
-INSERT INTO familias(numero_familia, familia) VALUES (04, 'BATIDORA PEDESTAL')
-INSERT INTO familias(numero_familia, familia) VALUES (05, 'BATIDORA FUENTE')
-INSERT INTO familias(numero_familia, familia) VALUES (06, 'MULTIPLACTICOS')
-INSERT INTO familias(numero_familia, familia) VALUES (07, 'EXLUSIVO COPPEL.COM')
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (01, 'BATIDORA MANUAL', 31)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (02, 'PROCESADOR', 31)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (03, 'PICADORA', 31)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (04, 'BATIDORA PEDESTAL', 31)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (05, 'BATIDORA FUENTE', 31)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (06, 'MULTIPLACTICOS', 31)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (07, 'EXLUSIVO COPPEL.COM', 31)
 					
 -- CAFETERAS		
-INSERT INTO familias(numero_familia, familia) VALUES (01, 'CAFETERAS')
-INSERT INTO familias(numero_familia, familia) VALUES (02, 'PERCOLADORAS')
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (01, 'CAFETERAS', 41)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (02, 'PERCOLADORAS', 41)
 
 -- AMPLIFICAROES CAR AUDIO
-INSERT INTO familias(numero_familia, familia) VALUES (01, 'AMPLIFICADOR/RECEPTOR')
-INSERT INTO familias(numero_familia, familia) VALUES (02, 'KIT DE INSTALACION')
-INSERT INTO familias(numero_familia, familia) VALUES (03, 'APLIFICADORES COPPEL')
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (01, 'AMPLIFICADOR/RECEPTOR', 12)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (02, 'KIT DE INSTALACION', 12)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (03, 'APLIFICADORES COPPEL', 12)
 
 -- AUTO STEREOS
-INSERT INTO familias(numero_familia, familia) VALUES (01, 'AUTOESTEREO CD')
-INSERT INTO familias(numero_familia, familia) VALUES (02, 'ACCESORIOS CAR AUDIO')
-INSERT INTO familias(numero_familia, familia) VALUES (03, 'AMPLIFICADOR')
-INSERT INTO familias(numero_familia, familia) VALUES (04, 'ALARMA AUTO/CASA')
-INSERT INTO familias(numero_familia, familia) VALUES (05, 'SIN MECANISMO')
-INSERT INTO familias(numero_familia, familia) VALUES (06, 'CON CD')
-INSERT INTO familias(numero_familia, familia) VALUES (07, 'MULTIMEDIA')
-INSERT INTO familias(numero_familia, familia) VALUES (08, 'PAQUETE SIN MECANISMO')
-INSERT INTO familias(numero_familia, familia) VALUES (09, 'PAQUETE CON CD')
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (01, 'AUTOESTEREO CD', 22)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (02, 'ACCESORIOS CAR AUDIO', 22)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (03, 'AMPLIFICADOR', 22)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (04, 'ALARMA AUTO/CASA', 22)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (05, 'SIN MECANISMO', 22)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (06, 'CON CD', 22)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (07, 'MULTIMEDIA', 22)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (08, 'PAQUETE SIN MECANISMO', 22)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (09, 'PAQUETE CON CD', 22)
 
 -- COLCHON
-INSERT INTO familias(numero_familia, familia) VALUES (01, 'PILLOW TOP KS')
-INSERT INTO familias(numero_familia, familia) VALUES (02, 'PILLOW TOP DOBLE KS')
-INSERT INTO familias(numero_familia, familia) VALUES (03, 'HULE ESPUMA KS')
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (01, 'PILLOW TOP KS', 13)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (02, 'PILLOW TOP DOBLE KS', 13)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (03, 'HULE ESPUMA KS', 13)
 
 -- JUEGO BOX
-INSERT INTO familias(numero_familia, familia) VALUES (01, 'ESTANDAR INDIVIDUAL')
-INSERT INTO familias(numero_familia, familia) VALUES (02, 'PILLOW TOP INDIVIDUAL')
-INSERT INTO familias(numero_familia, familia) VALUES (03, 'PILLOW TOP DOBLE')
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (01, 'ESTANDAR INDIVIDUAL', 23)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (02, 'PILLOW TOP INDIVIDUAL', 23)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (03, 'PILLOW TOP DOBLE', 23)
 
 -- SALAS
-INSERT INTO familias(numero_familia, familia) VALUES (01, 'ESQUINERAS SUPEROORES')
-INSERT INTO familias(numero_familia, familia) VALUES (02, 'TIPO L SECCIONAL')
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (01, 'ESQUINERAS SUPEROORES', 14)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (02, 'TIPO L SECCIONAL', 14)
 
 -- COMPLEMENTOS PARA SALA
-INSERT INTO familias(numero_familia, familia) VALUES (01, 'SILLON OCASIONAL')
-INSERT INTO familias(numero_familia, familia) VALUES (02, 'PUFF')
-INSERT INTO familias(numero_familia, familia) VALUES (03, 'BAUL')
-INSERT INTO familias(numero_familia, familia) VALUES (04, 'TABURETE')
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (01, 'SILLON OCASIONAL', 24)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (02, 'PUFF', 24)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (03, 'BAUL', 24)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (04, 'TABURETE', 24)
 
 -- SOFAS CAMA
-INSERT INTO familias(numero_familia, familia) VALUES (01, 'SOFACAMA TAPIZADO')
-INSERT INTO familias(numero_familia, familia) VALUES (02, 'SOFACAMA CLASICO')
-INSERT INTO familias(numero_familia, familia) VALUES (03, 'ESTUDIO')
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (01, 'SOFACAMA TAPIZADO', 34)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (02, 'SOFACAMA CLASICO', 34)
+INSERT INTO familias(numero_familia, familia, clase_departamento) VALUES (03, 'ESTUDIO', 34)
+
