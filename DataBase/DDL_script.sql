@@ -21,7 +21,7 @@ CREATE TABLE clases (
 	numero_clase NUMERIC(2, 0),
 	clase VARCHAR(80),
 	numero_departamento NUMERIC(1,0),
-	clase_departamento AS numero_clase + numero_departamento
+	clase_departamento AS convert(varchar(2), numero_clase) + convert(varchar(2), numero_departamento)
 )
 
 CREATE TABLE familias (
@@ -29,4 +29,3 @@ CREATE TABLE familias (
 	familia VARCHAR(80),
 	clase_departamento NUMERIC(3, 0)
 )
-

@@ -21,9 +21,9 @@ INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (1, 'COLCHON
 INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (2, 'JUEGO BOX', 3)
 
 -- SALAS, RECAMARAS, COMEDORES
-INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (1, 'SALAS', 3)
-INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (2, 'COMPLEMENTOS PARA SALA', 3)
-INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (3, 'SOFAS CAMA', 3)
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (1, 'SALAS', 4)
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (2, 'COMPLEMENTOS PARA SALA', 4)
+INSERT INTO clases(numero_clase, clase, numero_departamento) VALUES (3, 'SOFAS CAMA', 4)
 
 
 /* FAMILIAS */
