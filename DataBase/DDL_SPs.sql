@@ -43,3 +43,9 @@ INNER JOIN clases ON clases.numero_departamento = dep.numero_departamento
 INNER JOIN familias ON familias.clase_departamento = clases.clase_departamento
 WHERE dep.numero_departamento = @numero_departamento
 GO
+
+-- CONSULTA DEPARTAMENTOS
+CREATE PROC SP_consultarTodosLosDepartamentos
+AS
+SELECT * FROM departamentos
+GO

@@ -34,7 +34,8 @@ namespace ABCC_Coppel
 
         private void btnConsulta_Click(object sender, EventArgs e)
         {
-
+            FormularioConsultarArticulo formularioConsultarArticulo = new FormularioConsultarArticulo();
+            formularioConsultarArticulo.ShowDialog();
         }
 
     }

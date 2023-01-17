@@ -5,12 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Clases.InterfazDB
 {
     internal class InterfazArticulos : InterfazDB
     {
-        public InterfazArticulos() : base("articulos") { }
+        public InterfazArticulos() : base("articulos") 
+        {
+            this.dataAdapter = new SqlDataAdapter(new SqlCommand($"SELECT * FROM {tabla}", conn));
+            SqlCommandBuilder commBuilder = new SqlCommandBuilder(this.dataAdapter);
+            commBuilder.GetInsertCommand();
+            commBuilder.GetUpdateCommand();
+            commBuilder.GetDeleteCommand();
+            this.dataAdapter.Fill(this.dataTable);
+            this.dataView = this.dataTable.DefaultView;
+        }
         public int alta(ref Articulo articulo)
         {
             if (this.consulta(articulo.sku) != null)

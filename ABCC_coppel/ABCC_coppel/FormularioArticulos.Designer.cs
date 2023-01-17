@@ -258,7 +258,7 @@ namespace ABCC_Coppel
             // 
             this.datePickFechaBaja.Enabled = false;
             this.datePickFechaBaja.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePickFechaBaja.Location = new System.Drawing.Point(242, 278);
+            this.datePickFechaBaja.Location = new System.Drawing.Point(242, 280);
             this.datePickFechaBaja.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.datePickFechaBaja.Name = "datePickFechaBaja";
             this.datePickFechaBaja.Size = new System.Drawing.Size(86, 20);

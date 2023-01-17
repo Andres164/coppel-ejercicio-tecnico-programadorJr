@@ -10,6 +10,7 @@ namespace Clases.InterfazDB
 {
     internal class InterfazDB
     {
+        protected SqlConnection conn;
         protected SqlDataAdapter dataAdapter;
         protected DataTable dataTable;
         protected DataView dataView;
@@ -17,16 +18,8 @@ namespace Clases.InterfazDB
 
         public InterfazDB(string tabla)
         {
-            SqlConnection conn;
             conn = new SqlConnection("Data Source=Baio-PC\\SQLEXPRESS;Initial Catalog=ABCC_Coppel;Integrated Security=True");
-            this.dataAdapter = new SqlDataAdapter(new SqlCommand($"SELECT * FROM {tabla}", conn));
-            SqlCommandBuilder commBuilder = new SqlCommandBuilder(this.dataAdapter);
-            commBuilder.GetInsertCommand();
-            commBuilder.GetUpdateCommand();
-            commBuilder.GetDeleteCommand();
             this.dataTable = new DataTable();
-            this.dataAdapter.Fill(this.dataTable);
-            this.dataView = this.dataTable.DefaultView;
         }
     }
 }

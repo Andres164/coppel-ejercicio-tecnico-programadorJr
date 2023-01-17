@@ -18,6 +18,7 @@ namespace ABCC_Coppel
         {
             InitializeComponent();
             interfazArticulos = new InterfazArticulos();
+            this.datePickFechaAlta.Value = DateTime.Now;
         }
         protected bool esStringSoloNumeros(string texto)
         {
