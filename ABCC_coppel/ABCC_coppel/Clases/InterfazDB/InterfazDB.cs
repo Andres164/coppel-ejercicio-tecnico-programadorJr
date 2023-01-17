@@ -11,7 +11,10 @@ namespace Clases.InterfazDB
     internal class InterfazDB
     {
         protected SqlConnection conn;
-        protected SqlDataAdapter dataAdapter;
+        protected SqlCommand SP_alta;
+        protected SqlCommand SP_baja;
+        protected SqlCommand SP_cambio;
+        protected SqlCommand SP_consulta;
         protected DataTable dataTable;
         protected DataView dataView;
         protected DataTable DataTable { get => this.dataTable; }

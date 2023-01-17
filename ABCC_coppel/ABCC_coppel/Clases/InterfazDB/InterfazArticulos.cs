@@ -14,10 +14,12 @@ namespace Clases.InterfazDB
     {
         public InterfazArticulos()
         {
-            this.dataAdapter = new SqlDataAdapter(new SqlCommand("SP_consultarTodosArticulos", this.conn) { CommandType = CommandType.StoredProcedure });
-//             this.dataAdapter.InsertCommand = new SqlCommand("SP_altaArticulo", this.conn) { CommandType = CommandType.StoredProcedure };
-            this.dataAdapter.Fill(this.dataTable);
-            this.dataView = this.dataTable.DefaultView;
+            try
+            {
+                inicialzarTablasDeDatos();
+                inicializarComandosSql();
+            }
+            catch (Exception ex) { Log.error(ex); }
         }
         public int alta(ref Articulo articulo)
         {
@@ -28,11 +30,22 @@ namespace Clases.InterfazDB
                 DataRow nuevoRegistro = this.dataTable.NewRow();
                 articulo.fill(ref nuevoRegistro);
                 this.dataTable.Rows.Add(nuevoRegistro);
-                try 
-                { 
-                    this.dataAdapter.Update(this.dataTable);
+                try
+                {
+                    this.SP_alta.Parameters.AddWithValue("@sku", articulo.sku);
+                    this.SP_alta.Parameters.AddWithValue("@articulo", articulo.articulo);
+                    this.SP_alta.Parameters.AddWithValue("@marca", articulo.marca);
+                    this.SP_alta.Parameters.AddWithValue("@modelo", articulo.modelo);
+                    this.SP_alta.Parameters.AddWithValue("@departamento", articulo.departamento);
+                    this.SP_alta.Parameters.AddWithValue("@clase", articulo.clase);
+                    this.SP_alta.Parameters.AddWithValue("@familia", articulo.familia);
+                    this.SP_alta.Parameters.AddWithValue("@stock", articulo.stock);
+                    this.SP_alta.Parameters.AddWithValue("@cantidad", articulo.cantidad);
+                    this.conn.Open();
+                    this.SP_alta.ExecuteNonQuery();
+                    this.conn.Close();
                     return 0;
-                } 
+                }
                 catch (Exception ex) 
                 { 
                     Log.error(ex);
@@ -50,7 +63,7 @@ namespace Clases.InterfazDB
                 try
                 {
                     this.dataView.Delete(0);
-                    this.dataAdapter.Update(this.dataTable);
+                    //this.dataAdapter.Update(this.dataTable);
                     return 0;
                 }
                 catch (Exception ex) 
@@ -71,7 +84,7 @@ namespace Clases.InterfazDB
                 { 
                     DataRow dataRowArticulo = this.dataView[0].Row;
                     articulo.fill(ref dataRowArticulo);
-                    this.dataAdapter.Update(this.dataTable);
+                   // this.dataAdapter.Update(this.dataTable);
                     return 0;
                 }
                 catch (Exception ex)
@@ -100,5 +113,19 @@ namespace Clases.InterfazDB
                 }
             }
         }
+        private void inicializarComandosSql()
+        {
+            this.SP_alta = new SqlCommand("SP_altaArticulo", this.conn) { CommandType = CommandType.StoredProcedure };
+            this.SP_baja = new SqlCommand("SP_bajaArticulo", this.conn) { CommandType = CommandType.StoredProcedure };
+            this.SP_cambio = new SqlCommand("SP_cambioArticulo", this.conn) { CommandType = CommandType.StoredProcedure };
+            this.SP_consulta = new SqlCommand("SP_consultarArticulo", this.conn) { CommandType = CommandType.StoredProcedure };
+        }
+        private void inicialzarTablasDeDatos()
+        {
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(new SqlCommand("SP_consultarTodosArticulos", this.conn) { CommandType = CommandType.StoredProcedure });
+            dataAdapter.Fill(this.dataTable);
+            this.dataView = this.dataTable.DefaultView;
+        }
+        
     }
 }
