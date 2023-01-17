@@ -35,6 +35,12 @@ AS
 SELECT * FROM articulos WHERE sku = @sku
 GO
 
+-- Consultar todos
+CREATE PROC SP_consultarTodosArticulos
+AS
+SELECT * FROM articulos
+GO
+
 -- SELECT CLASE-FAMILIA DEL DEPARTAMENTO
 CREATE PROC SP_selectClasesFamiliasPertenecientesADepartamento @numero_departamento NUMERIC(1, 0)
 AS

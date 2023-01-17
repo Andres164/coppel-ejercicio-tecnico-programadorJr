@@ -16,7 +16,7 @@ namespace Clases.InterfazDB
         protected DataView dataView;
         protected DataTable DataTable { get => this.dataTable; }
 
-        public InterfazDB(string tabla)
+        public InterfazDB()
         {
             conn = new SqlConnection("Data Source=Baio-PC\\SQLEXPRESS;Initial Catalog=ABCC_Coppel;Integrated Security=True");
             this.dataTable = new DataTable();

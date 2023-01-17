@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Net.Http.Headers;
 
 namespace Clases.InterfazDB
 {
     internal class InterfazArticulos : InterfazDB
     {
-        public InterfazArticulos() : base("articulos") 
+        public InterfazArticulos()
         {
-            this.dataAdapter = new SqlDataAdapter(new SqlCommand($"SELECT * FROM {tabla}", conn));
-            SqlCommandBuilder commBuilder = new SqlCommandBuilder(this.dataAdapter);
-            commBuilder.GetInsertCommand();
-            commBuilder.GetUpdateCommand();
-            commBuilder.GetDeleteCommand();
+            this.dataAdapter = new SqlDataAdapter(new SqlCommand("SP_consultarTodosArticulos", this.conn) { CommandType = CommandType.StoredProcedure });
+//             this.dataAdapter.InsertCommand = new SqlCommand("SP_altaArticulo", this.conn) { CommandType = CommandType.StoredProcedure };
             this.dataAdapter.Fill(this.dataTable);
             this.dataView = this.dataTable.DefaultView;
         }

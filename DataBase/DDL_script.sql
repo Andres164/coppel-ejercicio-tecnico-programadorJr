@@ -10,7 +10,7 @@ CREATE TABLE articulos (
 	stock NUMERIC(9, 0) NOT NULL,
 	cantidad NUMERIC(9, 0) NOT NULL,
 	descontinuado BIT DEFAULT 0 NOT NULL,
-	fecha_baja AS CASE WHEN descontinuado = 0 THEN '1900-01-01' END
+	fecha_baja DATE DEFAULT '1900-01-01'
 )
 
 CREATE TABLE departamentos (
