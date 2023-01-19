@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Clases
+namespace ABCC_Coppel.Clases
 {
     internal static class Log
     {

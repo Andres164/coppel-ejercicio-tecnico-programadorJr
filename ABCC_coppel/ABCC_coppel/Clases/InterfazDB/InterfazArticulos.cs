@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Net.Http.Headers;
 
-namespace Clases.InterfazDB
+namespace ABCC_Coppel.Clases.InterfazDB
 {
     internal class InterfazArticulos : InterfazDB
     {

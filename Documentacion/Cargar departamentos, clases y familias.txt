@@ -1,0 +1,18 @@
+Cargar departamentos, clases y familias
+
+constructor:
+1. obtenerDepartamentos
+   Regresa un arreglo de enteros con todos los departamentos
+2. Si no regresa null: Cargar los departamentos al campo departamentos (formulario)
+2.1. seleccionar el primer objeto del campo departamentos
+2.2. ejecutar SelectionChanghedCommited del campo departamentos
+
+SelectionChanghedCommited departamento
+1. ejecutarClasesEnDepartamentos
+2. si no regresa null: cargar las clases al campo clases (formulario)
+2.1 seleccionar el primer objeto del campo clases
+2.2. ejecutar SelectionChanghedCommited del campo Clase
+
+SelectionChanghedCommited Clase
+1. ejecutar familiasEnClase
+2. si no regresa null: cargar las familias al campo familias (formulario)

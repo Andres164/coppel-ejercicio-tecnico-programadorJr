@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Clases.InterfazDB
+namespace ABCC_Coppel.Clases.InterfazDB
 {
     abstract internal class InterfazDB
     {
         protected SqlConnection conn;
         protected DataTable dataTable;
         protected DataView dataView;
-        protected DataTable DataTable { get => this.dataTable; }
 
         public InterfazDB()
         {

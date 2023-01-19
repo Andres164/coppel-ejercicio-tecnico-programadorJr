@@ -8,6 +8,7 @@ namespace ABCC_Coppel
 {
     internal static class Program
     {
+        public static string nombreDelDispositivo = "Baio-PC";
         public static string archivoLog = DateTime.Now.ToString("yyyy-MM-dd hh.mm.ss") + ".txt";
         /// <summary>
         /// The main entry point for the application.

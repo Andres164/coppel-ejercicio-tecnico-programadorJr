@@ -3,7 +3,7 @@ using System.Collections;
 using System.Data.SqlTypes;
 using System.Data;
 
-namespace Clases
+namespace ABCC_Coppel.Clases
 {
     internal class Articulo
     {
@@ -48,16 +48,6 @@ namespace Clases
             {
                 for (int i = 0; i < 11; i++)
                     this.campos.Add(dataRow[i]);
-            }
-            catch (Exception ex) { Log.error(ex); }
-        }
-
-        public void fill(ref DataRow dataRow)
-        {
-            try
-            {
-                for(int i = 0; i < this.campos.Count; i++)
-                    dataRow[i] = this.campos[i];
             }
             catch (Exception ex) { Log.error(ex); }
         }
