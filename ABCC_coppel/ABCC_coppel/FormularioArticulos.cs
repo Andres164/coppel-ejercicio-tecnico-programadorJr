@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ABCC_Coppel.Clases;
 using ABCC_Coppel.Clases.InterfazDB;
 
 namespace ABCC_Coppel

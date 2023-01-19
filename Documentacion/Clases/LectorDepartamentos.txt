@@ -4,8 +4,8 @@ Sin Entrada
 usando una coneccion con la base de datos
 crea un SqlCommand para ejecutar SP_consultarTodosLosDepartamentos
 crea un data reader para leer el resultado de SP_consultarTodosLosDepartamentos
-guarda la informacion del dataReader en un arreglo para devolverlo
-Regresa: arreglo de enteros
+guarda la informacion del dataReader en una lista para devolverla
+Regresa: lista de enteros
 
 + static clasesEnDepartamento
 Entrada: numero_clase
