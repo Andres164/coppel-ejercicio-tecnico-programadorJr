@@ -21,8 +21,7 @@ CREATE TABLE departamentos (
 CREATE TABLE clases (
 	numero_clase NUMERIC(2, 0),
 	clase VARCHAR(80),
-	numero_departamento NUMERIC(1,0),
-	clase_departamento AS convert(varchar(2), numero_clase) + convert(varchar(2), numero_departamento)
+	numero_departamento NUMERIC(1,0)
 )
 
 CREATE TABLE familias (

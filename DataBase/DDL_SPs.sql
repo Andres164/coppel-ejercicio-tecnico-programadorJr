@@ -41,14 +41,27 @@ AS
 SELECT * FROM articulos
 GO
 
--- SELECT CLASE-FAMILIA DEL DEPARTAMENTO
-CREATE PROC SP_selectClasesFamiliasPertenecientesADepartamento @numero_departamento NUMERIC(1, 0)
+-- SELECT ClasesEnDepartamento
+CREATE PROC SP_ClasesEnDepartamento @numero_departamento NUMERIC(1, 0)
 AS
-SELECT dep.*, clases.numero_clase, clases.clase, familias.numero_familia, familias.familia  FROM departamentos AS dep
-INNER JOIN clases ON clases.numero_departamento = dep.numero_departamento
-INNER JOIN familias ON familias.clase_departamento = clases.clase_departamento
-WHERE dep.numero_departamento = @numero_departamento
+SELECT * FROM clases
+WHERE numero_departamento = @numero_departamento;
 GO
+
+-- SELECT FamiliasEnClase
+CREATE PROC SP_FamiliasEnClase @numero_clase NUMERIC(2, 0), @numero_departamento NUMERIC(1, 0)
+AS
+SET @numero_departamento = CONVERT(CHAR(1), @numero_departamento)
+SET @numero_clase = CONVERT(VARCHAR(2), @numero_clase)
+
+DECLARE @clase_departamento NUMERIC(3, 0)
+SET @clase_departamento = CONVERT(NUMERIC(3,0), @numero_clase + @numero_departamento)
+SELECT * FROM familias
+WHERE clase_departamento = @clase_departamento
+GO
+
+EXEC SP_ClasesEnDepartamento 2
+EXEC SP_FamiliasEnClase 2, 2
 
 -- CONSULTA DEPARTAMENTOS
 CREATE PROC SP_consultarTodosLosDepartamentos

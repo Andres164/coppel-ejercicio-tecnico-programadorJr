@@ -1,0 +1,9 @@
+Clase estatica para leer el resultado de la ejecucion del SP_familiasEnClase
+
++ static familiasEnClase
+Entrada: numero_clase
+usando una coneccion con la base de datos
+crea un SqlCommand para ejecutar SP_familiasEnClase
+crea un data reader para leer el resultado de ejecutar el comando
+guarda la informacion del dataReader un arreglo de enteros
+Regresa: un arreglo de enteros
