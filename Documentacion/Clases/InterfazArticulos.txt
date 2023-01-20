@@ -28,7 +28,7 @@ una excepcion
 
 + Consulta
 Entrada: SKU
-El dataView es filtrado por el SKU, se devuelve un objeto articulo con los datos del registro
+usando la coneccion con la base de datos
 Salida: Objeto artículo
 
 

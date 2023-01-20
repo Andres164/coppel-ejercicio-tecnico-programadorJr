@@ -7,47 +7,51 @@ namespace ABCC_Coppel.Clases
 {
     internal class Articulo
     {
-        ArrayList campos;
-
-        public int sku { set { this.campos[0] = value; } get { return Convert.ToInt32(this.campos[0]); } }
-        public string articulo { set { this.campos[1] = value; } get { return Convert.ToString(this.campos[1]); } }
-        public string marca { set { this.campos[2] = value; } get { return Convert.ToString(this.campos[2]); } }
-        public string modelo { set { this.campos[3] = value; } get { return Convert.ToString(this.campos[3]); } }
-        public int departamento { set { this.campos[4] = value; } get { return Convert.ToInt32 (this.campos[4]); } }
-        public int clase { set { this.campos[5] = value; } get { return Convert.ToInt32 (this.campos[5]); } }
-        public int familia { set { this.campos[6] = value; } get { return Convert.ToInt32 (this.campos[6]); } }
-        public DateTime fechaAlta { set { this.campos[7] = value; } get { return Convert.ToDateTime(this.campos[7]); } }
-        public int stock { set { this.campos[8] = value; } get { return Convert.ToInt32(this.campos[8]); } }
-        public int cantidad { set { this.campos[9] = value; } get { return Convert.ToInt32(this.campos[9]); } }
-        public bool descontinuado { set { this.campos[10] = value; } get { return Convert.ToBoolean(this.campos[10]); } }
-        public DateTime fechaBaja { set { this.campos[11] = value; } get { return Convert.ToDateTime(this.campos[11]); } }
+        public int sku { get; set; }
+        public string articulo { get; set; }
+        public string marca { get; set; }
+        public string modelo { get; set; }
+        public int departamento { get; set; }
+        public int clase { get; set; }
+        public int familia { get; set; }
+        public DateTime fechaAlta { get; set; }
+        public int stock { get; set; }
+        public int cantidad { get; set; }
+        public bool descontinuado { get; set; }
+        public DateTime fechaBaja { get; set; }
 
         public Articulo(int sku, string articulo, string marca, string modelo, int departamento, int clase, int familia, int stock, int cantidad, bool descontinuado)
-        {
-            this.campos = new ArrayList(11)
-            {
-                sku,
-                articulo,
-                marca,
-                modelo,
-                departamento,
-                clase,
-                familia,
-                DateTime.Now,
-                stock,
-                cantidad,
-                descontinuado,
-                new DateTime(1990, 01, 01)
-            };
+        { 
+            this.sku = sku;
+            this.articulo = articulo;
+            this.marca = marca;
+            this.modelo = modelo;
+            this.departamento = departamento;
+            this.clase = clase;
+            this.familia = familia;
+            this.fechaAlta = DateTime.Now;
+            this.stock = stock;
+            this.cantidad = cantidad;
+            this.descontinuado = descontinuado;
+            this.fechaBaja = new DateTime(1990, 01, 01);
         }
 
-        public Articulo(ref DataRow dataRow)
+        public Articulo(IDataRecord registroArticulo)
         {
-            this.campos = new ArrayList(11);
             try
             {
-                for (int i = 0; i < 11; i++)
-                    this.campos.Add(dataRow[i]);
+                this.sku = (int)registroArticulo[0];
+                this.articulo = registroArticulo[1].ToString();
+                this.marca = registroArticulo[2].ToString();
+                this.modelo = registroArticulo[3].ToString();
+                this.departamento = (int)registroArticulo[4];
+                this.clase = (int)registroArticulo[5];
+                this.familia = (int)registroArticulo[6];
+                this.fechaAlta = Convert.ToDateTime( registroArticulo[7].ToString() );
+                this.stock = (int)registroArticulo[8];
+                this.cantidad = (int)registroArticulo[9];
+                this.descontinuado = (bool)registroArticulo[10];
+                this.fechaBaja = Convert.ToDateTime(registroArticulo[11].ToString());
             }
             catch (Exception ex) { Log.error(ex); }
         }

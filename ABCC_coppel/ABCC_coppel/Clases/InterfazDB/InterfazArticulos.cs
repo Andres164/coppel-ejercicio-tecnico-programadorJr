@@ -10,9 +10,10 @@ using System.Net.Http.Headers;
 
 namespace ABCC_Coppel.Clases.InterfazDB
 {
-    internal class InterfazArticulos : InterfazDB
+    internal class InterfazArticulos
     {
-        public InterfazArticulos() { }
+        string connStr;
+        public InterfazArticulos() { connStr = $"Data Source={Program.nombreDelDispositivo}\\SQLEXPRESS;Initial Catalog=ABCC_Coppel;Integrated Security=True"; }
         public int alta(ref Articulo articulo)
         {
             if (this.consulta(articulo.sku) != null)
@@ -21,8 +22,11 @@ namespace ABCC_Coppel.Clases.InterfazDB
             {
                 try
                 {
-                    using (SqlCommand SP_alta = new SqlCommand("SP_altaArticulo", this.conn) { CommandType = CommandType.StoredProcedure })
+                    using (SqlConnection conn = new SqlConnection(connStr))
                     {
+                        SqlCommand SP_alta = new SqlCommand("SP_altaArticulo", conn);
+                        SP_alta.CommandType = CommandType.StoredProcedure;
+
                         SP_alta.Parameters.AddWithValue("@sku", articulo.sku);
                         SP_alta.Parameters.AddWithValue("@articulo", articulo.articulo);
                         SP_alta.Parameters.AddWithValue("@marca", articulo.marca);
@@ -32,9 +36,8 @@ namespace ABCC_Coppel.Clases.InterfazDB
                         SP_alta.Parameters.AddWithValue("@familia", articulo.familia);
                         SP_alta.Parameters.AddWithValue("@stock", articulo.stock);
                         SP_alta.Parameters.AddWithValue("@cantidad", articulo.cantidad);
-                        this.conn.Open();
+                        conn.Open();
                         SP_alta.ExecuteNonQuery();
-                        this.conn.Close();
                     }
                     return 0;
                 }
@@ -47,88 +50,75 @@ namespace ABCC_Coppel.Clases.InterfazDB
         }
         public int baja(int sku)
         {
-            this.dataView.RowFilter = $"sku = {sku}";
-            if(this.dataView.Count < 1)
-                return 1;
-            else
+            try
             {
-                try
+                using(SqlConnection conn = new SqlConnection(connStr))
                 {
-                    using(SqlCommand SP_baja = new SqlCommand("SP_bajaArticulo", this.conn) { CommandType = CommandType.StoredProcedure } )
-                    {
-                        SP_baja.Parameters.AddWithValue("@sku", sku);
-                        this.conn.Open();
-                        SP_baja.ExecuteNonQuery();
-                        this.conn.Close();
-                    }
+                    SqlCommand SP_baja = new SqlCommand("SP_bajaArticulo", conn);
+                    SP_baja.CommandType = CommandType.StoredProcedure;
+                    SP_baja.Parameters.AddWithValue("@sku", sku);
+                    conn.Open();
+                    if( SP_baja.ExecuteNonQuery() < 1);
+                        return 1;
                     return 0;
                 }
-                catch (Exception ex) 
-                { 
-                    Log.error(ex);
-                    return 2;
-                }
+            }
+            catch (Exception ex) 
+            { 
+                Log.error(ex);
+                return 2;
             }
         }
         public int cambio(ref Articulo articulo)
         {
-            this.dataView.RowFilter = $"sku = {articulo.sku}";
-            if (this.dataView.Count < 1)
-                return 1;
-            else
-            {
-                try
-                { 
-                    using(SqlCommand SP_cambio = new SqlCommand("SP_cambioArticulo", this.conn) { CommandType = CommandType.StoredProcedure })
-                    {
-                        SP_cambio.Parameters.AddWithValue("@sku", articulo.sku);
-                        SP_cambio.Parameters.AddWithValue("@articulo", articulo.articulo);
-                        SP_cambio.Parameters.AddWithValue("@marca", articulo.marca);
-                        SP_cambio.Parameters.AddWithValue("@modelo", articulo.modelo);
-                        SP_cambio.Parameters.AddWithValue("@departamento", articulo.departamento);
-                        SP_cambio.Parameters.AddWithValue("@clase", articulo.clase);
-                        SP_cambio.Parameters.AddWithValue("@familia", articulo.familia);
-                        SP_cambio.Parameters.AddWithValue("@stock", articulo.stock);
-                        SP_cambio.Parameters.AddWithValue("@cantidad", articulo.cantidad);
-                        SP_cambio.Parameters.AddWithValue("@descontinuado", articulo.descontinuado);
-                        this.conn.Open();
-                        SP_cambio.ExecuteNonQuery();
-                        this.conn.Close();
-                    }
+            try
+            { 
+                using(SqlConnection conn = new SqlConnection(connStr) )
+                {
+                    SqlCommand SP_cambio = new SqlCommand("SP_cambioArticulo", conn);
+                    SP_cambio.CommandType = CommandType.StoredProcedure;
+                    SP_cambio.Parameters.AddWithValue("@sku", articulo.sku);
+                    SP_cambio.Parameters.AddWithValue("@articulo", articulo.articulo);
+                    SP_cambio.Parameters.AddWithValue("@marca", articulo.marca);
+                    SP_cambio.Parameters.AddWithValue("@modelo", articulo.modelo);
+                    SP_cambio.Parameters.AddWithValue("@departamento", articulo.departamento);
+                    SP_cambio.Parameters.AddWithValue("@clase", articulo.clase);
+                    SP_cambio.Parameters.AddWithValue("@familia", articulo.familia);
+                    SP_cambio.Parameters.AddWithValue("@stock", articulo.stock);
+                    SP_cambio.Parameters.AddWithValue("@cantidad", articulo.cantidad);
+                    SP_cambio.Parameters.AddWithValue("@descontinuado", articulo.descontinuado);
+                    conn.Open();
+                    if (SP_cambio.ExecuteNonQuery() < 1)
+                        return 1;
                     return 0;
                 }
-                catch (Exception ex)
-                {
-                    Log.error(ex);
-                    return 2;
-                }
+            }
+            catch (Exception ex)
+            {
+                Log.error(ex);
+                return 2;
             }
         }
         public Articulo consulta(int sku)
         {
-            this.dataView.RowFilter = $"sku = {sku}";
-            if (this.dataView.Count < 1)
-                return null;
-            else
+            try
             {
-                try
+                using (SqlConnection conn = new SqlConnection(connStr))
                 {
-                    DataRow articuloEncontrado = this.dataView[0].Row;
-                    return new Articulo(ref articuloEncontrado);
-                }
-                catch (Exception ex)
-                {
-                    Log.error(ex);
+                    SqlCommand SP_consultarArticulo = new SqlCommand("SP_consultarArticulo", conn);
+                    SP_consultarArticulo.CommandType = CommandType.StoredProcedure;
+                    SP_consultarArticulo.Parameters.AddWithValue("@sku", sku);
+                    conn.Open();
+                    SqlDataReader dataReader = SP_consultarArticulo.ExecuteReader();
+                    if (dataReader.Read())
+                    {
+                        Articulo articulo = new Articulo((IDataRecord)dataReader);
+                        return articulo;
+                    }
                     return null;
                 }
-            }
+            } catch (Exception ex) { Log.error(ex); }
+            return null;
         }
-        override protected void inicialzarTablasDeDatos()
-        {
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(new SqlCommand("SP_consultarTodosArticulos", this.conn) { CommandType = CommandType.StoredProcedure });
-            dataAdapter.Fill(this.dataTable);
-            this.dataView = this.dataTable.DefaultView;
-        }
-        
     }
 }
