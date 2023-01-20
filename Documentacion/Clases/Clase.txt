@@ -1,6 +1,0 @@
-Esta clase representa un registro de la tabla clases en la base de datos
-
-Propiedades:
-numero_clase
-clase
-numero_departamento

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ABCC_Coppel.Clases;
 using ABCC_Coppel.Clases.InterfazDB;
 
 namespace ABCC_Coppel
@@ -48,7 +47,47 @@ namespace ABCC_Coppel
 
         protected void btnBuscarSku_Click(object sender, EventArgs e)
         {
+            List<int> departamentos = LectorDepartamentos.obtenerDepartamentos();
+            if(departamentos == null)
+                MessageBox.Show("Ocurrio un error inesperado, para mas informacon lea el archivo Log en mis documentos");
+            else
+            {
+                foreach(int departamento in departamentos)
+                    this.comboBoxDepartamento.Items.Add(departamento);
+                this.comboBoxDepartamento.SelectedIndex= 0;
+            }
+        }
 
+        private void comboBoxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<int> clasesEnDepartamento;
+            int departamentoSeleccionado = Convert.ToInt32(this.comboBoxDepartamento.Text);
+            clasesEnDepartamento = LectorDepartamentos.clasesEnDepartamento(departamentoSeleccionado);
+            if (clasesEnDepartamento == null)
+                MessageBox.Show("Ocurrio un error inesperado, para mas informacon lea el archivo Log en mis documentos");
+            else
+            {
+                this.comboBoxClase.Items.Clear();
+                foreach(int clase in clasesEnDepartamento)
+                    this.comboBoxClase.Items.Add(clase);
+                this.comboBoxClase.SelectedIndex = 0;
+            }
+        }
+        private void comboBoxClase_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<int> familiasEnClase;
+            int claseSeleccionada = Convert.ToInt32(this.comboBoxClase.Text);
+            int departamentoSeleccionado = Convert.ToInt32(this.comboBoxDepartamento.Text);
+            familiasEnClase = LectorClases.familiasEnClase(claseSeleccionada, departamentoSeleccionado);
+            if(familiasEnClase == null)
+                MessageBox.Show("Ocurrio un error inesperado, para mas informacon lea el archivo Log en mis documentos");
+            else
+            {
+                this.comboBoxFamilia.Items.Clear();
+                foreach(int familia in familiasEnClase)
+                    this.comboBoxFamilia.Items.Add(familia);
+                this.comboBoxFamilia.SelectedIndex = 0;
+            }
         }
     }
 }

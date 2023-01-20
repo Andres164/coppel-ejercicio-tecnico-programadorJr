@@ -200,12 +200,12 @@ namespace ABCC_Coppel
             // 
             // comboBoxDepartamento
             // 
-            this.comboBoxDepartamento.Enabled = false;
             this.comboBoxDepartamento.FormattingEnabled = true;
             this.comboBoxDepartamento.Location = new System.Drawing.Point(89, 146);
             this.comboBoxDepartamento.Name = "comboBoxDepartamento";
             this.comboBoxDepartamento.Size = new System.Drawing.Size(239, 21);
             this.comboBoxDepartamento.TabIndex = 5;
+            this.comboBoxDepartamento.SelectedIndexChanged += new System.EventHandler(this.comboBoxDepartamento_SelectedIndexChanged);
             // 
             // txtBoxModelo
             // 
@@ -218,16 +218,15 @@ namespace ABCC_Coppel
             // 
             // comboBoxClase
             // 
-            this.comboBoxClase.Enabled = false;
             this.comboBoxClase.FormattingEnabled = true;
             this.comboBoxClase.Location = new System.Drawing.Point(89, 180);
             this.comboBoxClase.Name = "comboBoxClase";
             this.comboBoxClase.Size = new System.Drawing.Size(239, 21);
             this.comboBoxClase.TabIndex = 6;
+            this.comboBoxClase.SelectedIndexChanged += new System.EventHandler(this.comboBoxClase_SelectedIndexChanged);
             // 
             // comboBoxFamilia
             // 
-            this.comboBoxFamilia.Enabled = false;
             this.comboBoxFamilia.FormattingEnabled = true;
             this.comboBoxFamilia.Location = new System.Drawing.Point(89, 214);
             this.comboBoxFamilia.Name = "comboBoxFamilia";

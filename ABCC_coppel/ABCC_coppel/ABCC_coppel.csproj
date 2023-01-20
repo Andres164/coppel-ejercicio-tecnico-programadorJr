@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Articulo.cs" />
-    <Compile Include="Clases\Clase.cs" />
+    <Compile Include="Clases\InterfazDB\LectorClases.cs" />
     <Compile Include="Clases\InterfazDB\LectorDepartamentos.cs" />
     <Compile Include="Clases\InterfazDB\InterfazDB.cs" />
     <Compile Include="Clases\Log.cs" />

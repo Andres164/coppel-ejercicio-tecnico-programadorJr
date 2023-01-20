@@ -23,45 +23,40 @@ namespace ABCC_Coppel.Clases.InterfazDB
         {
             try
             {
-            using ( SqlConnection conn = new SqlConnection(connStr) )
-            {
-                SqlCommand command = new SqlCommand("SP_consultarTodosLosDepartamentos", conn);
-                command.CommandType = CommandType.StoredProcedure;
-                conn.Open();
-                SqlDataReader dataReader = command.ExecuteReader();
+                using ( SqlConnection conn = new SqlConnection(connStr) )
+                {
+                    SqlCommand command = new SqlCommand("SP_consultarTodosLosDepartamentos", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    conn.Open();
+                    SqlDataReader dataReader = command.ExecuteReader();
 
-                List<int> departamentos = new List<int>(4);
-                while (dataReader.Read())
-                    departamentos.Add( (int)dataReader.GetDecimal(0));
-                return departamentos;
-            }
+                    List<int> departamentos = new List<int>(4);
+                    while (dataReader.Read())
+                        departamentos.Add( (int)dataReader.GetDecimal(0));
+                    return departamentos;
+                }
             } catch (Exception ex) { Log.error(ex); }
             return null;
         }
-        /*
-        usando una coneccion con la base de datos
-        crea un SqlCommand para ejecutar SP_ClasesEnDepartamento
-        crea un data reader para leer el resultado de SP_ClasesEnDepartamento
-        guarda la informacion del dataReader un arreglo de objetos clase para devolverlo
-        Regresa: un arreglo de objetos Clase
-        */
-        static public List<Clases.Clase> clasesEnDepartamento(int numero_clase)
+        static public List<int> clasesEnDepartamento(int numero_departamento)
         {
             try
             {
                 using( SqlConnection conn = new SqlConnection(connStr) ) 
                 {
-                    SqlCommand command = new SqlCommand("SP_clasesEnDepartamento");
+                    SqlCommand command = new SqlCommand("SP_clasesEnDepartamento", conn);
                     command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@numero_departamento", numero_departamento);
                     conn.Open();
                     SqlDataReader dataReader = command.ExecuteReader();
-                    List<Clases.Clase> clasesEnDepartamento = new List<Clases.Clase>(4);
+                    List<int> clasesEnDepartamento = new List<int>(4);
                     while(dataReader.Read())
-                    {
-
-                    }
+                        clasesEnDepartamento.Add( (int)dataReader.GetDecimal(0) );
+                    return clasesEnDepartamento;
                 }
             }
+            catch(Exception ex) { Log.error(ex); }
+            return null;
         }
     }
 }

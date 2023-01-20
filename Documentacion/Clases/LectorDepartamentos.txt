@@ -12,5 +12,5 @@ Entrada: numero_clase
 usando una coneccion con la base de datos
 crea un SqlCommand para ejecutar SP_ClasesEnDepartamento
 crea un data reader para leer el resultado de SP_ClasesEnDepartamento
-guarda la informacion del dataReader un arreglo de objetos clase para devolverlo
-Regresa: un arreglo de objetos Clase
+guarda la informacion del dataReader una lista de enteros para devolverlo
+Regresa: una lista de enteros
