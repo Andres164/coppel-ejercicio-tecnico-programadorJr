@@ -179,6 +179,7 @@ namespace ABCC_Coppel
             this.checkBoxDescontinuado.TabIndex = 12;
             this.checkBoxDescontinuado.Text = "Descontinuado";
             this.checkBoxDescontinuado.UseVisualStyleBackColor = true;
+            this.checkBoxDescontinuado.CheckedChanged += new System.EventHandler(this.checkBoxDescontinuado_CheckedChanged);
             // 
             // txtBoxArticulo
             // 
@@ -200,6 +201,7 @@ namespace ABCC_Coppel
             // 
             // comboBoxDepartamento
             // 
+            this.comboBoxDepartamento.Enabled = false;
             this.comboBoxDepartamento.FormattingEnabled = true;
             this.comboBoxDepartamento.Location = new System.Drawing.Point(89, 146);
             this.comboBoxDepartamento.Name = "comboBoxDepartamento";
@@ -218,6 +220,7 @@ namespace ABCC_Coppel
             // 
             // comboBoxClase
             // 
+            this.comboBoxClase.Enabled = false;
             this.comboBoxClase.FormattingEnabled = true;
             this.comboBoxClase.Location = new System.Drawing.Point(89, 180);
             this.comboBoxClase.Name = "comboBoxClase";
@@ -227,6 +230,7 @@ namespace ABCC_Coppel
             // 
             // comboBoxFamilia
             // 
+            this.comboBoxFamilia.Enabled = false;
             this.comboBoxFamilia.FormattingEnabled = true;
             this.comboBoxFamilia.Location = new System.Drawing.Point(89, 214);
             this.comboBoxFamilia.Name = "comboBoxFamilia";
@@ -244,8 +248,9 @@ namespace ABCC_Coppel
             // 
             // datePickFechaAlta
             // 
+            this.datePickFechaAlta.CustomFormat = "yyyy-MM-dd";
             this.datePickFechaAlta.Enabled = false;
-            this.datePickFechaAlta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePickFechaAlta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePickFechaAlta.Location = new System.Drawing.Point(89, 280);
             this.datePickFechaAlta.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.datePickFechaAlta.Name = "datePickFechaAlta";
@@ -255,8 +260,9 @@ namespace ABCC_Coppel
             // 
             // datePickFechaBaja
             // 
+            this.datePickFechaBaja.CustomFormat = "yyyy-MM-dd";
             this.datePickFechaBaja.Enabled = false;
-            this.datePickFechaBaja.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePickFechaBaja.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePickFechaBaja.Location = new System.Drawing.Point(242, 280);
             this.datePickFechaBaja.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.datePickFechaBaja.Name = "datePickFechaBaja";

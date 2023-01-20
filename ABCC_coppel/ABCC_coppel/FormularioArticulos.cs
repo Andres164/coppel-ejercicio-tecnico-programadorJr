@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ABCC_Coppel.Clases;
 using ABCC_Coppel.Clases.InterfazDB;
 
 namespace ABCC_Coppel
@@ -27,15 +28,31 @@ namespace ABCC_Coppel
                 caracteresNoNumericos += c >= '0' && c <= '9' ? 0 : 1;
             return caracteresNoNumericos == 0;
         }
+        protected void rellenarFormulario(ref Articulo articulo)
+        {
+            this.txtBoxSku.Text= articulo.sku.ToString();
+            this.txtBoxArticulo.Text = articulo.articulo;
+            this.txtBoxMarca.Text = articulo.marca;
+            this.txtBoxModelo.Text = articulo.modelo;
+            this.comboBoxDepartamento.Text = articulo.departamento.ToString();
+            this.comboBoxClase.Text = articulo.clase.ToString();
+            this.comboBoxFamilia.Text = articulo.familia.ToString();
+            this.datePickFechaAlta.Value = articulo.fechaAlta;
+            this.numericStock.Value = articulo.stock;
+            this.numericCantidad.Value = articulo.cantidad;
+            this.checkBoxDescontinuado.Checked = articulo.descontinuado;
+            this.datePickFechaBaja.Value = articulo.fechaBaja;
+            if(articulo.descontinuado)
+                this.datePickFechaBaja.Visible = true;
+            else
+                this.datePickFechaBaja.Visible = false;
+        }
+        protected void rellenarArticuloConInfoFormulario()
+        {
+
+        }
         protected void txtBoxSku_TextChanged(object sender, EventArgs e)
         {
-            /*
-             si el SKU es válido,
-             obtener el registro con ese SKU a través de la interfaz formulario
-             escribir la informacion del articulo en los campos del formulario
-             si el SKU no es valido, mostrar un mensaje notificando al usuario que se ingreso un sku no valido
-              y eliminar el ultimo caracter del campo sku
-             */
             if (!esStringSoloNumeros(this.txtBoxSku.Text))
             {
                 int ultimoCaracter = this.txtBoxSku.Text.Length - 1;
@@ -43,8 +60,6 @@ namespace ABCC_Coppel
                 MessageBox.Show("El campo sku solo acepta caracteres numericos", "Sku Invalido");
             }
         }
-        abstract protected void btnFuncion_Click(object sender, EventArgs e);
-
         protected void btnBuscarSku_Click(object sender, EventArgs e)
         {
             List<int> departamentos = LectorDepartamentos.obtenerDepartamentos();
@@ -57,8 +72,7 @@ namespace ABCC_Coppel
                 this.comboBoxDepartamento.SelectedIndex= 0;
             }
         }
-
-        private void comboBoxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        protected void comboBoxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<int> clasesEnDepartamento;
             int departamentoSeleccionado = Convert.ToInt32(this.comboBoxDepartamento.Text);
@@ -73,7 +87,7 @@ namespace ABCC_Coppel
                 this.comboBoxClase.SelectedIndex = 0;
             }
         }
-        private void comboBoxClase_SelectedIndexChanged(object sender, EventArgs e)
+        protected void comboBoxClase_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<int> familiasEnClase;
             int claseSeleccionada = Convert.ToInt32(this.comboBoxClase.Text);
@@ -88,6 +102,14 @@ namespace ABCC_Coppel
                     this.comboBoxFamilia.Items.Add(familia);
                 this.comboBoxFamilia.SelectedIndex = 0;
             }
+        }
+
+        abstract protected void btnFuncion_Click(object sender, EventArgs e);
+
+        private void checkBoxDescontinuado_CheckedChanged(object sender, EventArgs e)
+        {
+            if(this.checkBoxDescontinuado.Checked)
+                this.datePickFechaBaja.Value = DateTime.Now;
         }
     }
 }

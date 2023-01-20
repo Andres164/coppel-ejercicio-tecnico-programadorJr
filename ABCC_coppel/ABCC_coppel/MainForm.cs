@@ -20,16 +20,16 @@ namespace ABCC_Coppel
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
-
+            
         }
         private void btnCambio_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnConsulta_Click(object sender, EventArgs e)

@@ -58,7 +58,7 @@ namespace ABCC_Coppel.Clases.InterfazDB
                     SP_baja.CommandType = CommandType.StoredProcedure;
                     SP_baja.Parameters.AddWithValue("@sku", sku);
                     conn.Open();
-                    if( SP_baja.ExecuteNonQuery() < 1);
+                    if( SP_baja.ExecuteNonQuery() < 1)
                         return 1;
                     return 0;
                 }
