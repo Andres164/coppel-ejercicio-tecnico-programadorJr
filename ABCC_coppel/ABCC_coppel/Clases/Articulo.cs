@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Data.SqlTypes;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace ABCC_Coppel.Clases
 {
@@ -36,22 +37,22 @@ namespace ABCC_Coppel.Clases
             this.fechaBaja = new DateTime(1990, 01, 01);
         }
 
-        public Articulo(IDataRecord registroArticulo)
+        public Articulo(ref SqlDataReader registroArticulo)
         {
             try
             {
-                this.sku = (int)registroArticulo[0];
-                this.articulo = registroArticulo[1].ToString();
-                this.marca = registroArticulo[2].ToString();
-                this.modelo = registroArticulo[3].ToString();
-                this.departamento = (int)registroArticulo[4];
-                this.clase = (int)registroArticulo[5];
-                this.familia = (int)registroArticulo[6];
-                this.fechaAlta = Convert.ToDateTime( registroArticulo[7].ToString() );
-                this.stock = (int)registroArticulo[8];
-                this.cantidad = (int)registroArticulo[9];
-                this.descontinuado = (bool)registroArticulo[10];
-                this.fechaBaja = Convert.ToDateTime(registroArticulo[11].ToString());
+                this.sku = (int)registroArticulo.GetDecimal(0);
+                this.articulo = registroArticulo.GetString(1);
+                this.marca = registroArticulo.GetString(2);
+                this.modelo = registroArticulo.GetString(3);
+                this.departamento = (int)registroArticulo.GetDecimal(4);
+                this.clase = (int)registroArticulo.GetDecimal(5);
+                this.familia = (int)registroArticulo.GetDecimal(6);
+                this.fechaAlta = registroArticulo.GetDateTime(7);
+                this.stock = (int)registroArticulo.GetDecimal(8);
+                this.cantidad = (int)registroArticulo.GetDecimal(9);
+                this.descontinuado = registroArticulo.GetBoolean(10);
+                this.fechaBaja = registroArticulo.GetDateTime(11);
             }
             catch (Exception ex) { Log.error(ex); }
         }

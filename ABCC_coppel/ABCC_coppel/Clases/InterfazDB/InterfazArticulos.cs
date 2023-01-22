@@ -112,7 +112,7 @@ namespace ABCC_Coppel.Clases.InterfazDB
                     SqlDataReader dataReader = SP_consultarArticulo.ExecuteReader();
                     if (dataReader.Read())
                     {
-                        Articulo articulo = new Articulo((IDataRecord)dataReader);
+                        Articulo articulo = new Articulo(ref dataReader);
                         return articulo;
                     }
                     return null;

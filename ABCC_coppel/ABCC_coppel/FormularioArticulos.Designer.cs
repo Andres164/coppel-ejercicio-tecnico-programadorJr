@@ -161,6 +161,7 @@ namespace ABCC_Coppel
             // 
             // btnFuncion
             // 
+            this.btnFuncion.Enabled = false;
             this.btnFuncion.Location = new System.Drawing.Point(253, 315);
             this.btnFuncion.Name = "btnFuncion";
             this.btnFuncion.Size = new System.Drawing.Size(75, 28);
@@ -248,7 +249,7 @@ namespace ABCC_Coppel
             // 
             // datePickFechaAlta
             // 
-            this.datePickFechaAlta.CustomFormat = "yyyy-MM-dd";
+            this.datePickFechaAlta.CustomFormat = "";
             this.datePickFechaAlta.Enabled = false;
             this.datePickFechaAlta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePickFechaAlta.Location = new System.Drawing.Point(89, 280);
@@ -260,15 +261,15 @@ namespace ABCC_Coppel
             // 
             // datePickFechaBaja
             // 
-            this.datePickFechaBaja.CustomFormat = "yyyy-MM-dd";
+            this.datePickFechaBaja.CustomFormat = "";
             this.datePickFechaBaja.Enabled = false;
             this.datePickFechaBaja.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datePickFechaBaja.Location = new System.Drawing.Point(242, 280);
-            this.datePickFechaBaja.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
+            this.datePickFechaBaja.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.datePickFechaBaja.Name = "datePickFechaBaja";
             this.datePickFechaBaja.Size = new System.Drawing.Size(86, 20);
             this.datePickFechaBaja.TabIndex = 11;
-            this.datePickFechaBaja.Value = new System.DateTime(2023, 1, 5, 15, 36, 10, 0);
+            this.datePickFechaBaja.Value = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.datePickFechaBaja.Visible = false;
             // 
             // numericStock
@@ -299,6 +300,7 @@ namespace ABCC_Coppel
             // 
             // btnBuscarSku
             // 
+            this.btnBuscarSku.Enabled = false;
             this.btnBuscarSku.Location = new System.Drawing.Point(12, 315);
             this.btnBuscarSku.Name = "btnBuscarSku";
             this.btnBuscarSku.Size = new System.Drawing.Size(75, 28);
@@ -348,30 +350,30 @@ namespace ABCC_Coppel
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private Label label10;
-        private Label labelFechaBaja;
-        private Button btnFuncion;
-        private CheckBox checkBoxDescontinuado;
-        private TextBox txtBoxArticulo;
-        private TextBox txtBoxMarca;
-        private ComboBox comboBoxDepartamento;
-        private TextBox txtBoxModelo;
-        private ComboBox comboBoxClase;
-        private ComboBox comboBoxFamilia;
-        private TextBox txtBoxSku;
-        private DateTimePicker datePickFechaAlta;
-        private DateTimePicker datePickFechaBaja;
-        private NumericUpDown numericStock;
-        private NumericUpDown numericCantidad;
-        private Button btnBuscarSku;
+        protected Label label1;
+        protected Label label2;
+        protected Label label3;
+        protected Label label4;
+        protected Label label5;
+        protected Label label6;
+        protected Label label7;
+        protected Label label8;
+        protected Label label9;
+        protected Label label10;
+        protected Label labelFechaBaja;
+        protected Button btnFuncion;
+        protected CheckBox checkBoxDescontinuado;
+        protected TextBox txtBoxArticulo;
+        protected TextBox txtBoxMarca;
+        protected ComboBox comboBoxDepartamento;
+        protected TextBox txtBoxModelo;
+        protected ComboBox comboBoxClase;
+        protected ComboBox comboBoxFamilia;
+        protected TextBox txtBoxSku;
+        protected DateTimePicker datePickFechaAlta;
+        protected DateTimePicker datePickFechaBaja;
+        protected NumericUpDown numericStock;
+        protected NumericUpDown numericCantidad;
+        protected Button btnBuscarSku;
     }
 }

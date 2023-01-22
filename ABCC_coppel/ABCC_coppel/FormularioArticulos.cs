@@ -20,6 +20,15 @@ namespace ABCC_Coppel
             InitializeComponent();
             interfazArticulos = new InterfazArticulos();
             this.datePickFechaAlta.Value = DateTime.Now;
+
+            List<int> departamentos = LectorDepartamentos.obtenerDepartamentos();
+            if (departamentos == null)
+                MessageBox.Show("Ocurrio un error inesperado, para mas informacon lea el archivo Log en mis documentos");
+            else
+            {
+                foreach (int departamento in departamentos)
+                    this.comboBoxDepartamento.Items.Add(departamento);
+            }
         }
         protected bool esStringSoloNumeros(string texto)
         {
@@ -42,10 +51,6 @@ namespace ABCC_Coppel
             this.numericCantidad.Value = articulo.cantidad;
             this.checkBoxDescontinuado.Checked = articulo.descontinuado;
             this.datePickFechaBaja.Value = articulo.fechaBaja;
-            if(articulo.descontinuado)
-                this.datePickFechaBaja.Visible = true;
-            else
-                this.datePickFechaBaja.Visible = false;
         }
         protected void rellenarArticuloConInfoFormulario()
         {
@@ -57,20 +62,21 @@ namespace ABCC_Coppel
             {
                 int ultimoCaracter = this.txtBoxSku.Text.Length - 1;
                 string sku = this.txtBoxSku.Text.Remove(ultimoCaracter);
-                MessageBox.Show("El campo sku solo acepta caracteres numericos", "Sku Invalido");
+                this.txtBoxSku.Text = sku;
             }
-        }
-        protected void btnBuscarSku_Click(object sender, EventArgs e)
-        {
-            List<int> departamentos = LectorDepartamentos.obtenerDepartamentos();
-            if(departamentos == null)
-                MessageBox.Show("Ocurrio un error inesperado, para mas informacon lea el archivo Log en mis documentos");
+            else if(this.txtBoxSku.Text.Length > 0)
+                this.btnBuscarSku.Enabled = true;
             else
-            {
-                foreach(int departamento in departamentos)
-                    this.comboBoxDepartamento.Items.Add(departamento);
-                this.comboBoxDepartamento.SelectedIndex= 0;
-            }
+                this.btnBuscarSku.Enabled = false;
+        }
+        protected virtual void btnBuscarSku_Click(object sender, EventArgs e)
+        {
+            InterfazArticulos interfaz = new InterfazArticulos();
+            Articulo resultado = interfaz.consulta(Convert.ToInt32(this.txtBoxSku.Text));
+            if (resultado == null)
+                MessageBox.Show("El articulo no existe o se encntro un error");
+            else
+                this.rellenarFormulario(ref resultado);
         }
         protected void comboBoxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -84,7 +90,6 @@ namespace ABCC_Coppel
                 this.comboBoxClase.Items.Clear();
                 foreach(int clase in clasesEnDepartamento)
                     this.comboBoxClase.Items.Add(clase);
-                this.comboBoxClase.SelectedIndex = 0;
             }
         }
         protected void comboBoxClase_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,7 +105,6 @@ namespace ABCC_Coppel
                 this.comboBoxFamilia.Items.Clear();
                 foreach(int familia in familiasEnClase)
                     this.comboBoxFamilia.Items.Add(familia);
-                this.comboBoxFamilia.SelectedIndex = 0;
             }
         }
 
@@ -109,7 +113,16 @@ namespace ABCC_Coppel
         private void checkBoxDescontinuado_CheckedChanged(object sender, EventArgs e)
         {
             if(this.checkBoxDescontinuado.Checked)
+            {
                 this.datePickFechaBaja.Value = DateTime.Now;
+                this.datePickFechaBaja.Visible = true;
+                this.labelFechaBaja.Visible = true;
+            } 
+            else
+            {
+                this.datePickFechaBaja.Visible = false;
+                this.labelFechaBaja.Visible = false;
+            }
         }
     }
 }

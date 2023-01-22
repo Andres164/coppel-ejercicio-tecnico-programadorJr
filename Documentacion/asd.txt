@@ -1,0 +1,22 @@
+Alta
+Cargar departamentos y seleccionar indice 0
+cargar clases y seleccionar indice 0
+cargar familias y seleccionar indice 0
+
+Baja
+departamento.Text = articulo.departamento
+clase = articulo.clase
+familia = articulo.familia
+
+Cambio
+Cargar departamentos y seleccionar indice articulo.departamento-1
+cargar clases y seleccionar indice clase articulo.clase-1
+cargar familias y seleccionar indice 0 clase = articulo.familia-1
+
+Consulta
+departamento.Text = articulo.departamento
+clase = articulo.clase
+familia = articulo.familia
+
+
+Cargar departamento-clase-familia (departamento, clase, familia)
