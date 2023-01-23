@@ -20,22 +20,6 @@ namespace ABCC_Coppel
             InitializeComponent();
             interfazArticulos = new InterfazArticulos();
             this.datePickFechaAlta.Value = DateTime.Now;
-
-            List<int> departamentos = LectorDepartamentos.obtenerDepartamentos();
-            if (departamentos == null)
-                MessageBox.Show("Ocurrio un error inesperado, para mas informacon lea el archivo Log en mis documentos");
-            else
-            {
-                foreach (int departamento in departamentos)
-                    this.comboBoxDepartamento.Items.Add(departamento);
-            }
-        }
-        protected bool esStringSoloNumeros(string texto)
-        {
-            int caracteresNoNumericos = 0;
-            foreach (char c in texto)
-                caracteresNoNumericos += c >= '0' && c <= '9' ? 0 : 1;
-            return caracteresNoNumericos == 0;
         }
         protected void rellenarFormulario(ref Articulo articulo)
         {
@@ -52,9 +36,39 @@ namespace ABCC_Coppel
             this.checkBoxDescontinuado.Checked = articulo.descontinuado;
             this.datePickFechaBaja.Value = articulo.fechaBaja;
         }
-        protected void rellenarArticuloConInfoFormulario()
+        protected Articulo rellenarArticuloConInfoFormulario()
         {
-
+            int sku = Convert.ToInt32(this.txtBoxSku.Text);
+            string articulo = this.txtBoxArticulo.Text;
+            string marca = this.txtBoxMarca.Text;
+            string modelo = this.txtBoxModelo.Text;
+            int departamento = Convert.ToInt32( this.comboBoxDepartamento.Text);
+            int clase = Convert.ToInt32( this.comboBoxClase.Text);
+            int familia = Convert.ToInt32( this.comboBoxFamilia.Text);
+            DateTime fechaAlta = this.datePickFechaAlta.Value;
+            int stock = Convert.ToInt32(this.numericStock.Value);
+            int cantidad = Convert.ToInt32(this.numericCantidad.Value);
+            bool descontinuado = this.checkBoxDescontinuado.Checked;
+            DateTime fechaBaja = this.datePickFechaBaja.Value;
+            return new Articulo(sku, articulo, marca, modelo, departamento, clase, familia, fechaAlta, stock, cantidad, descontinuado, fechaBaja);
+        }
+        protected void habilitarEdicionDeCampos()
+        {
+            this.txtBoxArticulo.Enabled = true;
+            this.txtBoxMarca.Enabled = true;
+            this.txtBoxModelo.Enabled = true;
+            this.comboBoxDepartamento.Enabled = true;
+            this.comboBoxClase.Enabled = true;
+            this.comboBoxFamilia.Enabled = true;
+            this.numericStock.Enabled = true;
+            this.numericCantidad.Enabled = true;
+        }
+        protected bool esStringSoloNumeros(string texto)
+        {
+            int caracteresNoNumericos = 0;
+            foreach (char c in texto)
+                caracteresNoNumericos += c >= '0' && c <= '9' ? 0 : 1;
+            return caracteresNoNumericos == 0;
         }
         protected void txtBoxSku_TextChanged(object sender, EventArgs e)
         {
@@ -76,7 +90,10 @@ namespace ABCC_Coppel
             if (resultado == null)
                 MessageBox.Show("El articulo no existe o se encntro un error");
             else
+            {
                 this.rellenarFormulario(ref resultado);
+                this.btnFuncion.Enabled = true;
+            }
         }
         protected void comboBoxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -90,6 +107,7 @@ namespace ABCC_Coppel
                 this.comboBoxClase.Items.Clear();
                 foreach(int clase in clasesEnDepartamento)
                     this.comboBoxClase.Items.Add(clase);
+                this.comboBoxClase.SelectedIndex = 0;
             }
         }
         protected void comboBoxClase_SelectedIndexChanged(object sender, EventArgs e)
@@ -105,6 +123,7 @@ namespace ABCC_Coppel
                 this.comboBoxFamilia.Items.Clear();
                 foreach(int familia in familiasEnClase)
                     this.comboBoxFamilia.Items.Add(familia);
+                this.comboBoxFamilia.SelectedIndex = 0;
             }
         }
 

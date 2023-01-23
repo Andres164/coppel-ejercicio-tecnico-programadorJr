@@ -50,6 +50,9 @@
     <Compile Include="Clases\InterfazDB\LectorClases.cs" />
     <Compile Include="Clases\InterfazDB\LectorDepartamentos.cs" />
     <Compile Include="Clases\Log.cs" />
+    <Compile Include="FormularioAltaArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormularioArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +60,12 @@
       <DependentUpon>FormularioArticulos.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\InterfazDB\InterfazArticulos.cs" />
+    <Compile Include="FormularioBajaArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioCambioArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormularioConsultarArticulo.cs">
       <SubType>Form</SubType>
     </Compile>

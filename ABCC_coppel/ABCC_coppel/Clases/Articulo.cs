@@ -21,7 +21,7 @@ namespace ABCC_Coppel.Clases
         public bool descontinuado { get; set; }
         public DateTime fechaBaja { get; set; }
 
-        public Articulo(int sku, string articulo, string marca, string modelo, int departamento, int clase, int familia, int stock, int cantidad, bool descontinuado)
+        public Articulo(int sku, string articulo, string marca, string modelo, int departamento, int clase, int familia, DateTime fechaAlta, int stock, int cantidad, bool descontinuado, DateTime fechaBaja)
         { 
             this.sku = sku;
             this.articulo = articulo;
@@ -30,11 +30,11 @@ namespace ABCC_Coppel.Clases
             this.departamento = departamento;
             this.clase = clase;
             this.familia = familia;
-            this.fechaAlta = DateTime.Now;
+            this.fechaAlta = fechaAlta;
             this.stock = stock;
             this.cantidad = cantidad;
             this.descontinuado = descontinuado;
-            this.fechaBaja = new DateTime(1990, 01, 01);
+            this.fechaBaja = fechaBaja;
         }
 
         public Articulo(ref SqlDataReader registroArticulo)
