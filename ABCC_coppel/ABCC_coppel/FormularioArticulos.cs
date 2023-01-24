@@ -52,16 +52,16 @@ namespace ABCC_Coppel
             DateTime fechaBaja = this.datePickFechaBaja.Value;
             return new Articulo(sku, articulo, marca, modelo, departamento, clase, familia, fechaAlta, stock, cantidad, descontinuado, fechaBaja);
         }
-        protected void habilitarEdicionDeCampos()
+        protected void asignarEdicionDeCampos(bool esEditable)
         {
-            this.txtBoxArticulo.Enabled = true;
-            this.txtBoxMarca.Enabled = true;
-            this.txtBoxModelo.Enabled = true;
-            this.comboBoxDepartamento.Enabled = true;
-            this.comboBoxClase.Enabled = true;
-            this.comboBoxFamilia.Enabled = true;
-            this.numericStock.Enabled = true;
-            this.numericCantidad.Enabled = true;
+            this.txtBoxArticulo.Enabled = esEditable;
+            this.txtBoxMarca.Enabled = esEditable;
+            this.txtBoxModelo.Enabled = esEditable;
+            this.comboBoxDepartamento.Enabled = esEditable;
+            this.comboBoxClase.Enabled = esEditable;
+            this.comboBoxFamilia.Enabled = esEditable;    
+            this.numericStock.Enabled = esEditable;
+            this.numericCantidad.Enabled = esEditable;
         }
         protected bool esStringSoloNumeros(string texto)
         {
