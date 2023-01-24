@@ -54,15 +54,16 @@ namespace ABCC_Coppel
         }
         protected void limparFormulario()
         {
-            string sku = this.txtBoxSku.Text;
             foreach (Control control in this.Controls.OfType<TextBox>())
-                control.Text = "";
+            {
+                if(control.Name != "txtBoxSku")
+                    control.Text = "";
+            }
             foreach (ComboBox control in this.Controls.OfType<ComboBox>())
                 control.Text = "";
             foreach (NumericUpDown control in this.Controls.OfType<NumericUpDown>())
                 control.Value = 0;
             this.checkBoxDescontinuado.Checked = false;
-            this.txtBoxSku.Text = sku;
         }
         protected bool esStringSoloNumeros(string texto)
         {
@@ -84,6 +85,7 @@ namespace ABCC_Coppel
             else
                 this.btnBuscarSku.Enabled = false;
             this.btnFuncion.Enabled = false;
+            this.limparFormulario();
         }
         protected virtual void btnBuscarSku_Click(object sender, EventArgs e)
         {

@@ -10,7 +10,11 @@ namespace ABCC_Coppel
 {
     internal class FormularioBajaArticulo : FormularioArticulos
     {
-        public FormularioBajaArticulo() => btnFuncion.Text = "Dar de baja";
+        public FormularioBajaArticulo()
+        {
+            this.Text = "Formulario Baja";
+            btnFuncion.Text = "Dar de baja";
+        }
         protected override void btnFuncion_Click(object sender, EventArgs e)
         {
             InterfazArticulos interfazArticulos = new InterfazArticulos();

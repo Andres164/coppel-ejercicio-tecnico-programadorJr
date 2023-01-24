@@ -12,11 +12,9 @@ namespace ABCC_Coppel
     {
         public FormularioConsultarArticulo()
         {
+            this.Text = "Formulario Consulta";
             this.btnFuncion.Visible = false;
         }
-        protected override void btnFuncion_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        protected override void btnFuncion_Click(object sender, EventArgs e) => throw new NotImplementedException();
     }
 }
