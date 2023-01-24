@@ -52,16 +52,17 @@ namespace ABCC_Coppel
             DateTime fechaBaja = this.datePickFechaBaja.Value;
             return new Articulo(sku, articulo, marca, modelo, departamento, clase, familia, fechaAlta, stock, cantidad, descontinuado, fechaBaja);
         }
-        protected void asignarEdicionDeCampos(bool esEditable)
+        protected void limparFormulario()
         {
-            this.txtBoxArticulo.Enabled = esEditable;
-            this.txtBoxMarca.Enabled = esEditable;
-            this.txtBoxModelo.Enabled = esEditable;
-            this.comboBoxDepartamento.Enabled = esEditable;
-            this.comboBoxClase.Enabled = esEditable;
-            this.comboBoxFamilia.Enabled = esEditable;    
-            this.numericStock.Enabled = esEditable;
-            this.numericCantidad.Enabled = esEditable;
+            string sku = this.txtBoxSku.Text;
+            foreach (Control control in this.Controls.OfType<TextBox>())
+                control.Text = "";
+            foreach (ComboBox control in this.Controls.OfType<ComboBox>())
+                control.Text = "";
+            foreach (NumericUpDown control in this.Controls.OfType<NumericUpDown>())
+                control.Value = 0;
+            this.checkBoxDescontinuado.Checked = false;
+            this.txtBoxSku.Text = sku;
         }
         protected bool esStringSoloNumeros(string texto)
         {
@@ -82,13 +83,18 @@ namespace ABCC_Coppel
                 this.btnBuscarSku.Enabled = true;
             else
                 this.btnBuscarSku.Enabled = false;
+            this.btnFuncion.Enabled = false;
         }
         protected virtual void btnBuscarSku_Click(object sender, EventArgs e)
         {
             InterfazArticulos interfaz = new InterfazArticulos();
             Articulo resultado = interfaz.consulta(Convert.ToInt32(this.txtBoxSku.Text));
             if (resultado == null)
+            {
                 MessageBox.Show("El articulo no existe o se encntro un error");
+                limparFormulario();
+                this.btnFuncion.Enabled = false;
+            }
             else
             {
                 this.rellenarFormulario(ref resultado);

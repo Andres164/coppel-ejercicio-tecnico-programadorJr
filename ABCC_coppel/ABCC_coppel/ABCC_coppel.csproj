@@ -60,6 +60,9 @@
       <DependentUpon>FormularioArticulos.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\InterfazDB\InterfazArticulos.cs" />
+    <Compile Include="FormularioArticulosEditable.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormularioBajaArticulo.cs">
       <SubType>Form</SubType>
     </Compile>

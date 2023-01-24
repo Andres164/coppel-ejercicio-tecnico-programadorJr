@@ -10,7 +10,7 @@ using System.Reflection;
 
 namespace ABCC_Coppel
 {
-    internal class FormularioAltaArticulo : FormularioArticulos
+    internal class FormularioAltaArticulo : FormularioArticulosEditable
     {
         public FormularioAltaArticulo()
         {
@@ -29,12 +29,6 @@ namespace ABCC_Coppel
                 this.comboBoxDepartamento.SelectedIndex = 0;
             }
         }
-        protected void comboBoxDepartamento_EnabledChanged(object sender, EventArgs e)
-        {
-            this.comboBoxDepartamento.Items.Clear();
-            this.comboBoxClase.Items.Clear();
-            this.comboBoxFamilia.Items.Clear();
-        }
         protected override void btnFuncion_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -46,7 +40,8 @@ namespace ABCC_Coppel
             if (resultado != null)
             {
                 MessageBox.Show("El articulo YA existe o se encntro un error");
-
+                this.asignarEdicionDeCampos(false);
+                this.btnFuncion.Enabled = false;
             }
             else
             {
