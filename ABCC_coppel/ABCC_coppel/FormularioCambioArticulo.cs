@@ -21,6 +21,10 @@ namespace ABCC_Coppel
             this.Text = "Formulario Cambio";
             this.btnFuncion.Text = modificarRegistro;
         }
+        protected void seleccionarItemDepartamentoClaseFamilia()
+        {
+            
+        }
         protected override void btnFuncion_Click(object sender, EventArgs e)
         {
             if(this.btnFuncion.Text == modificarRegistro)

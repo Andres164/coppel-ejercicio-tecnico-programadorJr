@@ -217,7 +217,6 @@ namespace ABCC_Coppel
             // 
             // comboBoxDepartamento
             // 
-            this.comboBoxDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDepartamento.Enabled = false;
             this.comboBoxDepartamento.FormattingEnabled = true;
             this.comboBoxDepartamento.Location = new System.Drawing.Point(92, 152);
@@ -237,7 +236,6 @@ namespace ABCC_Coppel
             // 
             // comboBoxClase
             // 
-            this.comboBoxClase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxClase.Enabled = false;
             this.comboBoxClase.FormattingEnabled = true;
             this.comboBoxClase.Location = new System.Drawing.Point(92, 186);
@@ -248,7 +246,6 @@ namespace ABCC_Coppel
             // 
             // comboBoxFamilia
             // 
-            this.comboBoxFamilia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFamilia.Enabled = false;
             this.comboBoxFamilia.FormattingEnabled = true;
             this.comboBoxFamilia.Location = new System.Drawing.Point(92, 220);

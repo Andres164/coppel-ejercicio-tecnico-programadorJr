@@ -19,18 +19,6 @@ namespace ABCC_Coppel
             this.Text = "Formulario Alta";
             this.btnFuncion.Text = "Dar de alta";
         }
-        protected void cargarDepartamento_clase_familia()
-        {
-            List<int> departamentos = LectorDepartamentos.obtenerDepartamentos();
-            if (departamentos == null)
-                MessageBox.Show("Ocurrio un error inesperado, para mas informacon lea el archivo Log en mis documentos");
-            else
-            {
-                foreach (int departamento in departamentos)
-                    this.comboBoxDepartamento.Items.Add(departamento);
-                this.comboBoxDepartamento.SelectedIndex = 0;
-            }
-        }
         protected override void btnFuncion_Click(object sender, EventArgs e)
         {
             Articulo nuevoArticulo = this.rellenarArticuloConInfoFormulario();
@@ -60,7 +48,7 @@ namespace ABCC_Coppel
             else
             {
                 this.asignarEdicionDeCampos(true);
-                this.cargarDepartamento_clase_familia();
+                this.comboBoxDepartamento.SelectedIndex = 0;
                 this.btnFuncion.Enabled = true;
             }
         }

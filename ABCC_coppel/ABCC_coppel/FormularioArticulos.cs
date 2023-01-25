@@ -23,7 +23,6 @@ namespace ABCC_Coppel
         }
         protected void rellenarFormulario(ref Articulo articulo)
         {
-            this.txtBoxSku.Text= articulo.sku.ToString();
             this.txtBoxArticulo.Text = articulo.articulo;
             this.txtBoxMarca.Text = articulo.marca;
             this.txtBoxModelo.Text = articulo.modelo;
