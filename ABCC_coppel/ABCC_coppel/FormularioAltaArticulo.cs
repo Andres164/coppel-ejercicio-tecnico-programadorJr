@@ -15,7 +15,6 @@ namespace ABCC_Coppel
     {
         public FormularioAltaArticulo()
         {
-            this.comboBoxDepartamento.EnabledChanged += new EventHandler(this.comboBoxDepartamento_EnabledChanged);
             this.Text = "Formulario Alta";
             this.btnFuncion.Text = "Dar de alta";
         }
@@ -48,15 +47,9 @@ namespace ABCC_Coppel
             else
             {
                 this.asignarEdicionDeCampos(true);
-                this.comboBoxDepartamento.SelectedIndex = 0;
                 this.btnFuncion.Enabled = true;
+                this.comboBoxDepartamento.SelectedIndex = 0;
             }
-        }
-        protected void comboBoxDepartamento_EnabledChanged(object sender, EventArgs e)
-        {
-            this.comboBoxDepartamento.Items.Clear();
-            this.comboBoxClase.Items.Clear();
-            this.comboBoxFamilia.Items.Clear();
         }
     }
 }

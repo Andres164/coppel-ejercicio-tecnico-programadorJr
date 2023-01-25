@@ -20,10 +20,8 @@ namespace ABCC_Coppel
             this.txtBoxArticulo.EnabledChanged += new EventHandler(edicionDeCampos_Cambio);
             this.Text = "Formulario Cambio";
             this.btnFuncion.Text = modificarRegistro;
-        }
-        protected void seleccionarItemDepartamentoClaseFamilia()
-        {
-            
+            this.btnFuncion.Size = new System.Drawing.Size(100, this.btnFuncion.Size.Height);
+            this.btnFuncion.Location = new System.Drawing.Point((this.btnFuncion.Location.X - 25), this.btnFuncion.Location.Y);
         }
         protected override void btnFuncion_Click(object sender, EventArgs e)
         {

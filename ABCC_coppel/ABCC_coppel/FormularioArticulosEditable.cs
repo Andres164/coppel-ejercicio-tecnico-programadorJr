@@ -11,7 +11,8 @@ namespace ABCC_Coppel
         public FormularioArticulosEditable()
         {
             this.txtBoxSku.TextChanged += new EventHandler(this.txtBoxSkuFormEditable_TextChanged);
-            this.comboBoxDepartamento.Enabled = true;
+            this.comboBoxDepartamento.EnabledChanged += new EventHandler(this.comboBoxDepartamento_EnabledChanged);
+            this.cargarDepartamentos();
         }
         protected void asignarEdicionDeCampos(bool esEditable)
         {
@@ -20,12 +21,11 @@ namespace ABCC_Coppel
             this.txtBoxModelo.Enabled = esEditable;
             foreach (ComboBox comboBox in this.Controls.OfType<ComboBox>())
             {
-                comboBox.Enabled = esEditable;
                 comboBox.DropDownStyle = esEditable ? ComboBoxStyle.DropDownList : ComboBoxStyle.DropDown;
+                comboBox.Enabled = esEditable;
             }
             this.numericStock.Enabled = esEditable;
             this.numericCantidad.Enabled = esEditable;
-            this.cargarDepartamentos();
         }
         protected void cargarDepartamentos()
         {
@@ -34,10 +34,24 @@ namespace ABCC_Coppel
                 MessageBox.Show("Ocurrio un error inesperado, para mas informacon lea el archivo Log en mis documentos");
             else
             {
+
                 foreach (int departamento in departamentos)
                     this.comboBoxDepartamento.Items.Add(departamento);
             }
         }
-        protected void txtBoxSkuFormEditable_TextChanged(object sender, EventArgs e) => this.asignarEdicionDeCampos(false);
+        protected void txtBoxSkuFormEditable_TextChanged(object sender, EventArgs e)
+        {
+            this.asignarEdicionDeCampos(false);
+
+        }
+        protected void comboBoxDepartamento_EnabledChanged(object sender, EventArgs e)
+        {
+            if (!this.comboBoxDepartamento.Enabled)
+            {
+                this.comboBoxDepartamento.Text = "";
+                this.comboBoxClase.Text = "";
+                this.comboBoxFamilia.Text = "";
+            }
+        }
     }
 }
