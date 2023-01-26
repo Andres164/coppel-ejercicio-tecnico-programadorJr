@@ -13,7 +13,22 @@ namespace ABCC_Coppel.Clases.InterfazDB
     internal class InterfazArticulos
     {
         string connStr;
-        public InterfazArticulos() { connStr = $"Data Source={Program.nombreDelDispositivo}\\SQLEXPRESS;Initial Catalog=ABCC_Coppel;Integrated Security=True"; }
+        public InterfazArticulos() { connStr = $"Data Source={Program.nombreDelDispositivo}\\SQLEXPRESS;Initial " +
+                "Catalog=ABCC_Coppel;Integrated Security=True"; }
+        public int probarConeccion()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connStr))
+                    conn.Open();
+            }
+            catch (Exception e)
+            {
+                Log.error(e);
+                return 1;
+            }
+            return 0;
+        }
         public int alta(ref Articulo articulo)
         {
             if (this.consulta(articulo.sku) != null)

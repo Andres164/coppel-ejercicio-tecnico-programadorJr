@@ -18,7 +18,7 @@ namespace ABCC_Coppel
             this.Text = "Formulario Alta";
             this.btnFuncion.Text = "Dar de alta";
         }
-        protected override void btnFuncion_Click(object sender, EventArgs e)
+        protected override void ejecutarFuncionalidad()
         {
             Articulo nuevoArticulo = this.rellenarArticuloConInfoFormulario();
             InterfazArticulos interfazArticulos = new InterfazArticulos();
@@ -34,7 +34,7 @@ namespace ABCC_Coppel
             this.asignarEdicionDeCampos(false);
             this.btnFuncion.Enabled = false;
         }
-        protected override void btnBuscarSku_Click(object sender, EventArgs e)
+        override protected void btnBuscarSku_Click(object sender, EventArgs e)
         {
             InterfazArticulos interfaz = new InterfazArticulos();
             Articulo resultado = interfaz.consulta(Convert.ToInt32(this.txtBoxSku.Text));

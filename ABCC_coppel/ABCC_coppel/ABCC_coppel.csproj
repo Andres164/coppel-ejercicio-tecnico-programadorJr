@@ -50,6 +50,7 @@
     <Compile Include="Clases\InterfazDB\LectorClases.cs" />
     <Compile Include="Clases\InterfazDB\LectorDepartamentos.cs" />
     <Compile Include="Clases\Log.cs" />
+    <Compile Include="Clases\ValidacionDeFormulario.cs" />
     <Compile Include="FormularioAltaArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
